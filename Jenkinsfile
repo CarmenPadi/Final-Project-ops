@@ -25,15 +25,14 @@ pipeline {
                     echo "Building Docker image"
                     dir('Final-Project-ops') {
                     sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
-            }
-        }
-    }
-}
-
+                    }
+	        }
+	    }
+         }
         stage('Run Tests') {
             steps {
-                script {
-                    // Run the app or your tests here (for simplicity, we just run the app)
+		script {
+		    // Run the app or your tests here
                     echo "Running tests in Docker container"
                     sh 'docker run -d -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG'
                 }
@@ -43,13 +42,12 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 script {
-                    // Deploy the app (for simplicity, here we just print a message)
+                    // Deploy the app
                     echo 'Deploying to production...'
-                    // Add your deployment logic here (e.g., pushing to a production environment)
-                }
             }
         }
     }
+}
 
     post {
         always {
