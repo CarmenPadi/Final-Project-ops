@@ -56,8 +56,7 @@ pipeline {
         }
           success {
               emailext (
-                  to: 'mc.padillat@gmail.com',
-		  from: 'mc.padillat@gmail.com',
+                  to: 'm.padillatrevino.558@studms.ug.edu.pl',
                   subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                   body: """<p>Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' succeeded.</p><p>Check console output at <a href='${env.BUILD_URL}'>${env.BUILD_URL}</a></p>""",
                   mimeType: 'text/html'
