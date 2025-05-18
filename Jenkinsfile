@@ -54,5 +54,13 @@ pipeline {
             sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
             sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
         }
+          success {
+              emailext (
+                  to: 'mc.padillat@gmail.com',
+                  subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                  body: """<p>Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' succeeded.</p><p>Check console output at <a href='${env.BUILD_URL}'>${env.BUILD_URL}</a></p>""",
+                  mimeType: 'text/html'
+              )
+          }
     }
 }
