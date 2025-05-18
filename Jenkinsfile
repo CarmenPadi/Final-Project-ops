@@ -24,7 +24,9 @@ pipeline {
                 script {
                     // Build the Docker image
                     echo "Building Docker image"
+                    dir("${env.WORKSPACE}") {
                     sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
+                    }
                 }
             }
         }
