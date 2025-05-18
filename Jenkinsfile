@@ -7,10 +7,15 @@ pipeline {
     }
 
     stages {
-        stage('Clone Repository') {
+        stage('Checkout') {
             steps {
-                // Cloning the GitHub repository
-                git 'https://github.com/CarmenPadi/Final-Project-ops.git'
+                script {
+                    // Clone the repository and check out the main branch explicitly
+                    echo "Cloning repository and checking out the main branch"
+                    sh 'git fetch --all'
+                    sh 'git checkout main' // Ensure we're on the main branch
+                    sh 'git pull origin main' // Ensure the latest from the main branch
+                }
             }
         }
 
@@ -18,6 +23,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
+                    echo "Building Docker image"
                     sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
                 }
             }
@@ -26,7 +32,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    // If you have tests, run them here (for now we just run the app)
+                    // Run the app or your tests here (for simplicity, we just run the app)
+                    echo "Running tests in Docker container"
                     sh 'docker run -d -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG'
                 }
             }
@@ -46,6 +53,7 @@ pipeline {
     post {
         always {
             // Cleanup: stop and remove containers after the build is finished
+            echo 'Cleaning up Docker containers'
             sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
             sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
         }
