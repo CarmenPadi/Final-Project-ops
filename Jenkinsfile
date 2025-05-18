@@ -61,7 +61,6 @@ pipeline {
     		  subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
     		  body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' succeeded.",
     		  mimeType: 'text/plain',
-   		  debug: true
 		)
           }
     }
