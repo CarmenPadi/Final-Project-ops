@@ -23,9 +23,7 @@ pipeline {
             steps {
                 script {
                     echo "Building Docker image"
-                    dir('Final-Project-ops') {
-                    sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
-                    }
+		    sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
 	        }
 	    }
          }
