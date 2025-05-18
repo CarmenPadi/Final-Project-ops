@@ -22,14 +22,13 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build the Docker image
                     echo "Building Docker image"
-                    dir("${env.WORKSPACE}") {
+                    dir('Final-Project-ops') {
                     sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
-                    }
-                }
             }
         }
+    }
+}
 
         stage('Run Tests') {
             steps {
