@@ -23,8 +23,11 @@ pipeline {
             steps {
                 script {
                     echo "Building Docker image with tag ${DOCKER_TAG}"
-                    sh 'docker build -t $DOCKER_IMAGE:$DOCKER_TAG .'
-                    sh 'docker tag $DOCKER_IMAGE:$DOCKER_TAG $DOCKER_IMAGE:latest'
+		    // Tag Docker image with Jenkins build number (versioning)
+                    def version = "${BUILD_NUMBER}"
+                    sh "docker build -t $DOCKER_IMAGE:$version ."
+                    // Tag the image as 'latest'
+                    sh "docker tag $DOCKER_IMAGE:$version $DOCKER_IMAGE:latest"
 	        }
 	    }
          }
@@ -68,5 +71,15 @@ pipeline {
     		  mimeType: 'text/plain',
 		)
           }
+	failure {
+            // Send email notification on failure
+            emailext (
+                to: 'm.padillatrevino.558@studms.ug.edu.pl',
+                from: 'mc.padillat@gmail.com',
+                subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' failed.",
+                mimeType: 'text/plain',
+            )
+        }
     }
 }
