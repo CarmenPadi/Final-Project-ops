@@ -50,6 +50,7 @@ pipeline {
             		sh "echo ${BUILD_NUMBER} > last_successful_version.txt"
            		 // Optionally archive it in Jenkins
             		archiveArtifacts artifacts: 'last_successful_version.txt', onlyIfSuccessful: true
+			sh 'exit 1'  // This forces the step to fail
             }
         }
     }
