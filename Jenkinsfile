@@ -81,6 +81,8 @@ pipeline {
                 body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' failed.",
                 mimeType: 'text/plain',
             )
+		echo 'Deployment failed. Triggering rollback...'
+       		sh './rollback.sh'  // Ensure this points to the correct script path
         }
     }
 }
