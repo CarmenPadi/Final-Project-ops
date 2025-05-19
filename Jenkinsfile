@@ -43,6 +43,10 @@ pipeline {
                 script {
                     // Deploy the app
                     echo 'Deploying to production...'
+			// Record the deployed version
+            		sh "echo ${BUILD_NUMBER} > last_successful_version.txt"
+           		 // Optionally archive it in Jenkins
+            		archiveArtifacts artifacts: 'last_successful_version.txt', onlyIfSuccessful: true
             }
         }
     }
