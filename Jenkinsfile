@@ -40,7 +40,16 @@ pipeline {
                 }
             }
         }
-
+	    
+	stage('Deploy to Staging') {
+    steps {
+        script {
+            echo 'Deploying to staging...'
+            sh "docker run -d -p 4000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
+        }
+    }
+}
+	
         stage('Deploy to Production') {
             steps {
                 script {
