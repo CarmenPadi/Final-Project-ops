@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Awesome Website! - Est. 2000</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-image: url('creature-bg.jpeg');
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            background-attachment: fixed;
+            background-position: 0 0;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            overflow-x: auto;
+            /* Remove the fallback background-color that might be overriding */
+        }
+
+        /* Remove this entire section since your image is working:
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            z-index: -2;
+        }
+        */
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #ff0000;
+            box-shadow: 5px 5px 15px #000000;
+            backdrop-filter: blur(2px);
+        }
+
+        .header {
+            background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 5px solid #000;
+        }
+
+        .header h1 {
+            color: #ffffff;
+            text-shadow: 3px 3px 0px #000000;
+            font-size: 36px;
+            margin: 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .marquee {
+            background: rgba(255, 255, 0, 0.9);
+            border: 2px solid #ff0000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .sidebar {
+            float: left;
+            width: 200px;
+            background: rgba(0, 255, 255, 0.9);
+            border: 2px solid #0000ff;
+            padding: 15px;
+            margin-right: 20px;
+        }
+
+        .main-content {
+            margin-left: 240px;
+            background: rgba(255, 255, 153, 0.9);
+            border: 2px solid #ff6600;
+            padding: 15px;
+        }
+
+        .button {
+            background: linear-gradient(to bottom, #ff0000, #cc0000);
+            color: white;
+            border: 3px outset #ff0000;
+            padding: 10px 20px;
+            font-family: 'Comic Sans MS', cursive;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 5px;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 2px 2px 5px #000;
+        }
+
+        .button:hover {
+            background: linear-gradient(to bottom, #ff3333, #ff0000);
+            border: 3px inset #ff0000;
+        }
+
+        .counter {
+            background: rgba(0, 0, 0, 0.9);
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            padding: 10px;
+            border: 2px solid #00ff00;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .guestbook {
+            background: rgba(255, 153, 255, 0.9);
+            border: 3px solid #ff00ff;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .construction {
+            background: rgba(255, 255, 0, 0.9);
+            border: 3px solid #ff0000;
+            padding: 10px;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .webring {
+            background: rgba(204, 204, 204, 0.9);
+            border: 2px solid #666666;
+            padding: 10px;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            border-top: 3px solid #ff0000;
+        }
+
+        .sparkle {
+            color: #ff00ff;
+            font-weight: bold;
+            animation: sparkle 1.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 2px;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 5px;
+        }
+
+        .flame-text {
+            background: linear-gradient(to top, #ff0000, #ff6600, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        /* Game Styles */
+        .game-canvas {
+            border: 3px solid #00ff00;
+            background: #000;
+            display: block;
+            margin: 10px auto;
+        }
+
+        .game-controls {
+            text-align: center;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 10px;
+            border: 2px solid #00ff00;
+        }
+
+        .tic-tac-toe {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            grid-gap: 5px;
+            margin: 20px auto;
+            justify-content: center;
+        }
+
+        .tic-tac-toe button {
+            width: 80px;
+            height: 80px;
+            font-size: 24px;
+            font-weight: bold;
+            background: #ffff00;
+            border: 3px solid #ff0000;
+            cursor: pointer;
+        }
+
+        .tic-tac-toe button:hover {
+            background: #ffff99;
+        }
+
+        /* Enhanced retro effects */
+        .retro-glow {
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        }
+
+        .alien-border {
+            border: 3px solid #00ff00;
+            box-shadow: 0 0 15px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.1);
+        }
+
+        /* Test if image is loading */
+        .image-test {
+            width: 50px;
+            height: 50px;
+            background-image: url('creature-bg.jpeg');
+            background-size: cover;
+            border: 2px solid #ff0000;
+            display: inline-block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌟 Welcome to My <span class="blink">AWESOME</span> Website! 🌟</h1>
+            <p class="flame-text">★ The Coolest Site on the Web ★</p>
+            <p style="color: white; font-size: 14px; margin: 5px 0;">
+                <span class="retro-glow">👽 FEATURING AUTHENTIC ALIEN TECHNOLOGY 👽</span>
+            </p>
+        </div>
+
+        <div class="marquee">
+            <marquee behavior="scroll" direction="left" scrollamount="5">
+                🎉 Welcome to my homepage! 🎉 Don't forget to sign my guestbook! 🎉 This site is best viewed in Internet Explorer 6.0! 🎉 NOW WITH 100% MORE ALIENS! 🎉
+            </marquee>
+        </div>
+
+        <div class="construction">
+            <img src="/placeholder.svg?height=50&width=100" alt="Under Construction" style="vertical-align: middle;">
+            <strong>🚧 UNDER CONSTRUCTION 🚧</strong>
+            <img src="/placeholder.svg?height=50&width=100" alt="Under Construction" style="vertical-align: middle;">
+            <br><small>👽 Alien technology being integrated... 👽</small>
+            <br><small>Image test: <span class="image-test"></span> (Should show creature if image loads)</small>
+        </div>
+
+        <div class="content">
+            <div class="sidebar alien-border">
+                <h3>🔥 Navigation 🔥</h3>
+                <a href="#" class="button">Home</a><br>
+                <a href="#" class="button">About Me</a><br>
+                <a href="#" class="button">My Pets</a><br>
+                <a href="#" class="button">Cool Links</a><br>
+                <a href="#" class="button">Guestbook</a><br>
+
+                <div class="counter alien-border">
+                    <strong>VISITOR COUNTER</strong><br>
+                    <span style="font-size: 20px;">001337</span><br>
+                    You are visitor #1337!<br>
+                    <small class="retro-glow">👽 ALIENS DETECTED: 42 👽</small>
+                </div>
+
+                <h4>🎵 Now Playing:</h4>
+                <p style="background: rgba(0,0,0,0.9); color: #00ff00; padding: 5px; font-family: monospace;">
+                    ♪ X-Files Theme ♪
+                </p>
+
+                <h4>⭐ Cool Sites:</h4>
+                <p>
+                    <img src="/placeholder.svg?height=31&width=88" alt="Netscape Now"><br>
+                    <img src="/placeholder.svg?height=31&width=88" alt="Made with Notepad"><br>
+                    <img src="/placeholder.svg?height=31&width=88" alt="Best viewed in 800x600">
+                </p>
+            </div>
+
+            <div class="main-content">
+                <h2 class="sparkle">✨ About This Site ✨</h2>
+                <p>
+                    Welcome to my <strong>totally awesome</strong> homepage! This site was created with 
+                    <span class="blink">100% pure HTML</span> and lots of <span style="color: #ff0000;">♥ LOVE ♥</span>!
+                    <br><br>
+                    <span class="retro-glow">👽 Now featuring authentic alien technology from Area 51! 👽</span>
+                </p>
+
+                <div style="background: rgba(255,255,255,0.8); padding: 10px; border: 2px solid #ff0000; margin: 10px 0;">
+                    <strong>📁 Image Setup Instructions:</strong><br>
+                    1. Save your creature image as "creature-bg.jpeg" in the same folder as this HTML file<br>
+                    2. Or change line 8 in the CSS to match your image filename<br>
+                    3. Refresh the page to see your alien background!
+                </div>
+
+                <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; background: rgba(255,255,204,0.9);">
+                    <tr style="background: #ff6600; color: white;">
+                        <td><strong>Last Updated:</strong></td>
+                        <td><strong>Webmaster:</strong></td>
+                        <td><strong>Hits Today:</strong></td>
+                    </tr>
+                    <tr>
+                        <td>January 15, 2000</td>
+                        <td>xXx_WebMaster_2000_xXx</td>
+                        <td class="blink">42</td>
+                    </tr>
+                </table>
+
+                <h3>🎮 What's New:</h3>
+                <ul>
+                    <li>Added cool new animated GIFs!</li>
+                    <li>Updated my Pokémon collection page</li>
+                    <li>New MIDI background music</li>
+                    <li><span class="blink">NEW!</span> Guestbook feature</li>
+                    <li><span class="retro-glow">👽 ALIEN BACKGROUND TECHNOLOGY! 👽</span></li>
+                </ul>
+
+                <div class="guestbook alien-border">
+                    <h3>📝 Sign My Guestbook! 📝</h3>
+                    <p>Please sign my guestbook and let me know what you think of my site!</p>
+                    <form>
+                        <table>
+                            <tr>
+                                <td>Name:</td>
+                                <td><input type="text" name="name" size="20"></td>
+                            </tr>
+                            <tr>
+                                <td>Email:</td>
+                                <td><input type="email" name="email" size="20"></td>
+                            </tr>
+                            <tr>
+                                <td>Message:</td>
+                                <td><textarea name="message" rows="4" cols="30"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <input type="submit" value="Sign Guestbook!" class="button">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+
+                <h3>🔗 My Favorite Links:</h3>
+                <p>
+                    <a href="#" style="color: #0000ff;">Hamster Dance</a> |
+                    <a href="#" style="color: #0000ff;">All Your Base</a> |
+                    <a href="#" style="color: #0000ff;">Dancing Baby</a> |
+                    <a href="#" style="color: #0000ff;">Geocities</a> |
+                    <a href="#" style="color: #00ff00;">👽 UFO Sightings 👽</a>
+                </p>
+            </div>
+
+            <div style="clear: both;"></div>
+
+            <div style="clear: both; margin: 20px 0;">
+                <div style="background: linear-gradient(45deg, #ff00ff, #00ffff); border: 5px solid #ffff00; padding: 20px;" class="alien-border">
+                    <h2 style="text-align: center; color: white; text-shadow: 2px 2px 0px #000;">
+                        🎮 RETRO GAME ARCADE 🎮
+                    </h2>
+                    <p style="text-align: center; color: white;">
+                        <span class="retro-glow">👽 Powered by Alien Gaming Technology 👽</span>
+                    </p>
+                    
+                    <table border="3" cellpadding="10" cellspacing="5" style="width: 100%; background: rgba(255,255,255,0.9);">
+                        <tr style="background: #ff6600; color: white;">
+                            <td><strong>Game</strong></td>
+                            <td><strong>Description</strong></td>
+                            <td><strong>Play</strong></td>
+                        </tr>
+                        <tr>
+                            <td style="background: #ffff99;">
+                                <strong>🐍 Snake Classic</strong>
+                            </td>
+                            <td style="background: #ffccff;">
+                                Use arrow keys to eat food and grow!
+                            </td>
+                            <td style="background: #ccffcc; text-align: center;">
+                                <a href="#" onclick="openGame('snake')" class="button">PLAY!</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background: #ffff99;">
+                                <strong>⭕ Tic-Tac-Toe</strong>
+                            </td>
+                            <td style="background: #ffccff;">
+                                Classic X's and O's game!
+                            </td>
+                            <td style="background: #ccffcc; text-align: center;">
+                                <a href="#" onclick="openGame('tictactoe')" class="button">PLAY!</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background: #ffff99;">
+                                <strong>🎯 Number Guess</strong>
+                            </td>
+                            <td style="background: #ffccff;">
+                                Guess the secret number 1-100!
+                            </td>
+                            <td style="background: #ccffcc; text-align: center;">
+                                <a href="#" onclick="openGame('guess')" class="button">PLAY!</a>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                    <div id="gameFrame" style="display: none; margin-top: 20px; text-align: center;">
+                        <div style="background: rgba(0,0,0,0.9); border: 3px solid #ff0000; padding: 15px;" class="alien-border">
+                            <button onclick="closeGame()" class="button" style="margin-bottom: 10px;">❌ CLOSE GAME</button>
+                            <div id="gameContent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="webring alien-border">
+                <strong>🌐 WEBRING 🌐</strong><br>
+                <a href="#">&lt;&lt; Previous</a> |
+                <a href="#">Random</a> |
+                <a href="#">Next &gt;&gt;</a><br>
+                <small>This site is part of the "Awesome Y2K Sites" webring</small><br>
+                <small class="retro-glow">👽 Alien-approved websites only! 👽</small>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>
+                <span class="blink">★</span> Copyright © 2000 xXx_WebMaster_2000_xXx <span class="blink">★</span><br>
+                Best viewed with Internet Explorer 6.0 at 800x600 resolution<br>
+                <small>This page has been visited <strong>1,337</strong> times since January 1, 2000</small><br>
+                <small class="retro-glow">👽 Alien technology integration: 100% complete 👽</small>
+            </p>
+            <p>
+                <img src="/placeholder.svg?height=31&width=88" alt="Powered by HTML">
+                <img src="/placeholder.svg?height=31&width=88" alt="Made on Windows 98">
+            </p>
+        </div>
+    </div>
+
+    <!-- All the JavaScript game code stays the same -->
+    <script>
+        // Sparkle cursor effect
+        document.addEventListener('mousemove', function(e) {
+            if (Math.random() > 0.95) {
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = Math.random() > 0.5 ? '✨' : '👽';
+                sparkle.style.position = 'fixed';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.pointerEvents = 'none';
+                sparkle.style.zIndex = '9999';
+                sparkle.style.color = '#00ff00';
+                sparkle.style.textShadow = '0 0 10px #00ff00';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 1000);
+            }
+        });
+
+        // Game variables
+        let currentGame = null;
+        let gameInterval = null;
+
+        function openGame(gameType) {
+            const gameFrame = document.getElementById('gameFrame');
+            const gameContent = document.getElementById('gameContent');
+            
+            closeGame();
+            
+            gameFrame.style.display = 'block';
+            currentGame = gameType;
+            
+            switch(gameType) {
+                case 'snake':
+                    startSnakeGame();
+                    break;
+                case 'tictactoe':
+                    startTicTacToe();
+                    break;
+                case 'guess':
+                    startNumberGuess();
+                    break;
+            }
+            
+            gameFrame.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeGame() {
+            const gameFrame = document.getElementById('gameFrame');
+            const gameContent = document.getElementById('gameContent');
+            
+            if (gameInterval) {
+                clearInterval(gameInterval);
+                gameInterval = null;
+            }
+            
+            gameFrame.style.display = 'none';
+            gameContent.innerHTML = '';
+            currentGame = null;
+        }
+
+        // Snake Game
+        function startSnakeGame() {
+            const gameContent = document.getElementById('gameContent');
+            gameContent.innerHTML = `
+                <h3 style="color: #00ff00;">🐍 SNAKE GAME 🐍</h3>
+                <div class="game-controls">
+                    Score: <span id="snakeScore">0</span> | Use Arrow Keys to Move
+                </div>
+                <canvas id="snakeCanvas" class="game-canvas" width="400" height="400"></canvas>
+                <div class="game-controls">
+                    <button onclick="restartSnake()" class="button">🔄 RESTART</button>
+                </div>
+            `;
+            
+            initSnake();
+        }
+
+        let snake = [{x: 200, y: 200}];
+        let food = {x: 100, y: 100};
+        let dx = 0, dy = 0;
+        let score = 0;
+
+        function initSnake() {
+            const canvas = document.getElementById('snakeCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            snake = [{x: 200, y: 200}];
+            food = {x: Math.floor(Math.random() * 20) * 20, y: Math.floor(Math.random() * 20) * 20};
+            dx = 0; dy = 0;
+            score = 0;
+            
+            document.addEventListener('keydown', changeDirection);
+            
+            gameInterval = setInterval(() => {
+                clearCanvas(ctx);
+                moveSnake();
+                drawFood(ctx);
+                drawSnake(ctx);
+                checkCollision();
+            }, 150);
+        }
+
+        function clearCanvas(ctx) {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, 400, 400);
+        }
+
+        function drawSnake(ctx) {
+            ctx.fillStyle = '#00ff00';
+            snake.forEach(part => {
+                ctx.fillRect(part.x, part.y, 20, 20);
+            });
+        }
+
+        function drawFood(ctx) {
+            ctx.fillStyle = '#ff0000';
+            ctx.fillRect(food.x, food.y, 20, 20);
+        }
+
+        function moveSnake() {
+            const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+            snake.unshift(head);
+            
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                document.getElementById('snakeScore').textContent = score;
+                food = {x: Math.floor(Math.random() * 20) * 20, y: Math.floor(Math.random() * 20) * 20};
+            } else {
+                snake.pop();
+            }
+        }
+
+        function changeDirection(e) {
+            if (currentGame !== 'snake') return;
+            
+            const key = e.key;
+            if (key === 'ArrowUp' && dy === 0) { dx = 0; dy = -20; }
+            if (key === 'ArrowDown' && dy === 0) { dx = 0; dy = 20; }
+            if (key === 'ArrowLeft' && dx === 0) { dx = -20; dy = 0; }
+            if (key === 'ArrowRight' && dx === 0) { dx = 20; dy = 0; }
+        }
+
+        function checkCollision() {
+            const head = snake[0];
+            if (head.x < 0 || head.x >= 400 || head.y < 0 || head.y >= 400) {
+                gameOver();
+            }
+            for (let i = 1; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    gameOver();
+                }
+            }
+        }
+
+        function gameOver() {
+            clearInterval(gameInterval);
+            alert('Game Over! Score: ' + score);
+        }
+
+        function restartSnake() {
+            clearInterval(gameInterval);
+            initSnake();
+        }
+
+        // Tic-Tac-Toe Game
+        function startTicTacToe() {
+            const gameContent = document.getElementById('gameContent');
+            gameContent.innerHTML = `
+                <h3 style="color: #00ff00;">⭕ TIC-TAC-TOE ⭕</h3>
+                <div class="game-controls">
+                    Current Player: <span id="currentPlayer">X</span>
+                </div>
+                <div class="tic-tac-toe" id="ticTacToeBoard"></div>
+                <div class="game-controls">
+                    <button onclick="restartTicTacToe()" class="button">🔄 NEW GAME</button>
+                </div>
+            `;
+            
+            initTicTacToe();
+        }
+
+        let ticTacToeBoard = ['', '', '', '', '', '', '', '', ''];
+        let currentPlayer = 'X';
+
+        function initTicTacToe() {
+            ticTacToeBoard = ['', '', '', '', '', '', '', '', ''];
+            currentPlayer = 'X';
+            document.getElementById('currentPlayer').textContent = currentPlayer;
+            
+            const board = document.getElementById('ticTacToeBoard');
+            board.innerHTML = '';
+            
+            for (let i = 0; i < 9; i++) {
+                const button = document.createElement('button');
+                button.onclick = () => makeMove(i);
+                button.id = `cell-${i}`;
+                board.appendChild(button);
+            }
+        }
+
+        function makeMove(index) {
+            if (ticTacToeBoard[index] === '') {
+                ticTacToeBoard[index] = currentPlayer;
+                document.getElementById(`cell-${index}`).textContent = currentPlayer;
+                
+                if (checkWinner()) {
+                    setTimeout(() => alert(`Player ${currentPlayer} wins!`), 100);
+                } else if (ticTacToeBoard.every(cell => cell !== '')) {
+                    setTimeout(() => alert("It's a tie!"), 100);
+                } else {
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+                    document.getElementById('currentPlayer').textContent = currentPlayer;
+                }
+            }
+        }
+
+        function checkWinner() {
+            const winPatterns = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+            
+            return winPatterns.some(pattern => {
+                return pattern.every(index => ticTacToeBoard[index] === currentPlayer);
+            });
+        }
+
+        function restartTicTacToe() {
+            initTicTacToe();
+        }
+
+        // Number Guessing Game
+        function startNumberGuess() {
+            const gameContent = document.getElementById('gameContent');
+            gameContent.innerHTML = `
+                <h3 style="color: #00ff00;">🎯 GUESS THE NUMBER 🎯</h3>
+                <div class="game-controls">
+                    I'm thinking of a number between 1 and 100!<br>
+                    Attempts: <span id="attempts">0</span>
+                </div>
+                <div style="margin: 20px 0;">
+                    <input type="number" id="guessInput" min="1" max="100" 
+                           style="padding: 10px; font-size: 16px; width: 100px;">
+                    <button onclick="makeGuess()" class="button">GUESS!</button>
+                </div>
+                <div id="guessResult" class="game-controls"></div>
+                <div class="game-controls">
+                    <button onclick="restartGuess()" class="button">🔄 NEW NUMBER</button>
+                </div>
+            `;
+            
+            initNumberGuess();
+        }
+
+        let secretNumber = 0;
+        let attempts = 0;
+
+        function initNumberGuess() {
+            secretNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('attempts').textContent = attempts;
+            document.getElementById('guessResult').innerHTML = '';
+            document.getElementById('guessInput').value = '';
+        }
+
+        function makeGuess() {
+            const guess = parseInt(document.getElementById('guessInput').value);
+            const result = document.getElementById('guessResult');
+            
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                result.innerHTML = '<span style="color: #ff0000;">Please enter a number between 1 and 100!</span>';
+                return;
+            }
+            
+            attempts++;
+            document.getElementById('attempts').textContent = attempts;
+            
+            if (guess === secretNumber) {
+                result.innerHTML = `<span style="color: #00ff00;">🎉 CORRECT! You got it in ${attempts} attempts! 🎉</span>`;
+            } else if (guess < secretNumber) {
+                result.innerHTML = '<span style="color: #ffff00;">📈 Too low! Try higher!</span>';
+            } else {
+                result.innerHTML = '<span style="color: #ffff00;">📉 Too high! Try lower!</span>';
+            }
+            
+            document.getElementById('guessInput').value = '';
+        }
+
+        function restartGuess() {
+            initNumberGuess();
+        }
+
+        // Allow Enter key for number guess
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && currentGame === 'guess') {
+                makeGuess();
+            }
+        });
+    </script>
+</body>
+</html>
