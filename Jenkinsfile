@@ -68,8 +68,8 @@ pipeline {
         always {
             // Cleanup: stop and remove containers after the build is finished
             echo 'Cleaning up Docker containers'
-            sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
-            sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
+            // sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
+            // sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
         }
           success {
               emailext (
