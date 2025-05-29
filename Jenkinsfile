@@ -36,7 +36,7 @@ pipeline {
 		script {
 		    // Run the app or your tests here
                     echo "Running tests in Docker container"
-                    sh 'docker run -d -p 3000:80 $DOCKER_IMAGE:$DOCKER_TAG'
+                    sh 'docker run -d -p 3000:8080 $DOCKER_IMAGE:$DOCKER_TAG'
                 }
             }
         }
@@ -45,7 +45,7 @@ pipeline {
     steps {
         script {
             echo 'Deploying to staging...'
-            sh "docker run -d -p 4000:80 $DOCKER_IMAGE:$BUILD_NUMBER"
+            sh "docker run -d -p 4000:8080 $DOCKER_IMAGE:$BUILD_NUMBER"
         }
     }
 }
