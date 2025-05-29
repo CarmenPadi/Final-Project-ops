@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-image: url('./Images/creature-bg.jpeg');
+            /* Look for the image in the same folder as the HTML file */
+            background-image: url('creature-bg.jpeg');
             background-repeat: repeat;
             background-size: 200px 200px;
             background-attachment: fixed;
@@ -179,51 +180,12 @@
             border: 3px solid #00ff00;
             box-shadow: 0 0 15px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.1);
         }
-
-        /* Game Styles */
-        .game-canvas {
-            border: 3px solid #00ff00;
-            background: #000;
-            display: block;
-            margin: 10px auto;
-        }
-
-        .game-controls {
-            text-align: center;
-            margin: 10px 0;
-            font-family: 'Courier New', monospace;
-            color: #00ff00;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 10px;
-            border: 2px solid #00ff00;
-        }
-
-        .tic-tac-toe {
-            display: grid;
-            grid-template-columns: repeat(3, 80px);
-            grid-gap: 5px;
-            margin: 20px auto;
-            justify-content: center;
-        }
-
-        .tic-tac-toe button {
-            width: 80px;
-            height: 80px;
-            font-size: 24px;
-            font-weight: bold;
-            background: #ffff00;
-            border: 3px solid #ff0000;
-            cursor: pointer;
-        }
-
-        .tic-tac-toe button:hover {
-            background: #ffff99;
-        }
     </style>
 </head>
 <body>
     <header>
-        <img src="./Images/welcomesite.png" alt="My Website Logo" style="width:200px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <!-- Look for the image in the same folder as the HTML file -->
+        <img src="welcomesite.png" alt="My Website Logo" style="width:200px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div style="display:none; width:200px; height:150px; background:#ff0000; color:white; text-align:center; line-height:150px;">IMAGE NOT FOUND</div>
     </header>
 
@@ -279,11 +241,12 @@
                 </p>
 
                 <div style="background: rgba(255,255,255,0.8); padding: 10px; border: 2px solid #ff0000; margin: 10px 0;">
-                    <strong>📁 Your folder structure should be:</strong><br>
-                    index.html<br>
-                    Images/<br>
-                    &nbsp;&nbsp;├── welcomesite.png (header image)<br>
-                    &nbsp;&nbsp;└── creature-bg.jpeg (background image)
+                    <strong>📁 IMPORTANT: Your file structure should be:</strong><br>
+                    your-folder/<br>
+                    &nbsp;&nbsp;├── index.html<br>
+                    &nbsp;&nbsp;├── welcomesite.png<br>
+                    &nbsp;&nbsp;└── creature-bg.jpeg<br><br>
+                    <strong>Make sure all files are in the SAME folder!</strong>
                 </div>
 
                 <h3>🎮 What's New:</h3>
