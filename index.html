@@ -17,17 +17,6 @@
             color: #000;
             overflow-x: auto;
         }
-        
-        /* Test if image is loading 
-        .image-test {
-            width: 50px;
-            height: 50px;
-            background-image: url('./images/nowhere2.jpeg');
-            background-size: cover;
-            border: 2px solid #ff0000;
-            display: inline-block;
-            margin: 5px;
-        }*/
 
         .container {
             width: 800px;
@@ -182,6 +171,15 @@
             font-size: 24px;
         }
 
+        .retro-glow {
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        }
+
+        .alien-border {
+            border: 3px solid #00ff00;
+            box-shadow: 0 0 15px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.1);
+        }
+
         /* Game Styles */
         .game-canvas {
             border: 3px solid #00ff00;
@@ -221,22 +219,11 @@
         .tic-tac-toe button:hover {
             background: #ffff99;
         }
-
-        /* Enhanced retro effects */
-        .retro-glow {
-            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
-        }
-
-        .alien-border {
-            border: 3px solid #00ff00;
-            box-shadow: 0 0 15px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.1);
-        }
     </style>
 </head>
 <body>
-    <!-- This is where the image belongs -->
     <header>
-        <img src="./Images/Welcomesite.png" alt="My Website Logo" style="width:200px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <img src="./Images/welcomesite.png" alt="My Website Logo" style="width:200px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div style="display:none; width:200px; height:150px; background:#ff0000; color:white; text-align:center; line-height:150px;">IMAGE NOT FOUND</div>
     </header>
 
@@ -256,11 +243,8 @@
         </div>
 
         <div class="construction">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjRkZGRjAwIi8+Cjx0ZXh0IHg9IjUwIiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5VTkRFUiBDT05TVFJVQ1RJT048L3RleHQ+Cjwvc3ZnPgo=" alt="Under Construction" style="vertical-align: middle;">
             <strong>🚧 UNDER CONSTRUCTION 🚧</strong>
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjRkZGRjAwIi8+Cjx0ZXh0IHg9IjUwIiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5VTkRFUiBDT05TVFJVQ1RJT048L3RleHQ+Cjwvc3ZnPgo=" alt="Under Construction" style="vertical-align: middle;">
             <br><small>👽 Alien technology being integrated... 👽</small>
-            <br><small>Image test: <span class="image-test"></span> (Should show creature if image loads)</small>
         </div>
 
         <div class="content">
@@ -283,13 +267,6 @@
                 <p style="background: rgba(0,0,0,0.9); color: #00ff00; padding: 5px; font-family: monospace;">
                     ♪ X-Files Theme ♪
                 </p>
-
-                <h4>⭐ Cool Sites:</h4>
-                <p>
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjMDA2NkZGIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TmV0c2NhcGUgTm93PC90ZXh0Pgo8L3N2Zz4K" alt="Netscape Now"><br>
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjRkY2NjAwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWFkZSB3aXRoIE5vdGVwYWQ8L3RleHQ+Cjwvc3ZnPgo=" alt="Made with Notepad"><br>
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjMDA5OTAwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmVzdCB2aWV3ZWQgaW4gODAweDYwMDwvdGV4dD4KPC9zdmc+Cg==" alt="Best viewed in 800x600">
-                </p>
             </div>
 
             <div class="main-content">
@@ -302,27 +279,12 @@
                 </p>
 
                 <div style="background: rgba(255,255,255,0.8); padding: 10px; border: 2px solid #ff0000; margin: 10px 0;">
-                    <strong>📁 Image Setup Instructions:</strong><br>
-                    1. Create a folder called "images" (lowercase) in the same directory as this HTML file<br>
-                    2. Rename your image to "nowhere2.jpeg" (no spaces, lowercase)<br>
-                    3. Place the image in the "images" folder<br>
-                    4. Your folder structure should be: index.html and images/nowhere2.jpeg<br>
-                    5. Refresh the page to see your alien background!
+                    <strong>📁 Your folder structure should be:</strong><br>
+                    index.html<br>
+                    Images/<br>
+                    &nbsp;&nbsp;├── welcomesite.png (header image)<br>
+                    &nbsp;&nbsp;└── creature-bg.jpeg (background image)
                 </div>
-
-                <!-- Rest of the content remains the same -->
-                <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; background: rgba(255,255,204,0.9);">
-                    <tr style="background: #ff6600; color: white;">
-                        <td><strong>Last Updated:</strong></td>
-                        <td><strong>Webmaster:</strong></td>
-                        <td><strong>Hits Today:</strong></td>
-                    </tr>
-                    <tr>
-                        <td>January 15, 2000</td>
-                        <td>xXx_WebMaster_2000_xXx</td>
-                        <td class="blink">42</td>
-                    </tr>
-                </table>
 
                 <h3>🎮 What's New:</h3>
                 <ul>
@@ -358,78 +320,9 @@
                         </table>
                     </form>
                 </div>
-
-                <h3>🔗 My Favorite Links:</h3>
-                <p>
-                    <a href="#" style="color: #0000ff;">Hamster Dance</a> |
-                    <a href="#" style="color: #0000ff;">All Your Base</a> |
-                    <a href="#" style="color: #0000ff;">Dancing Baby</a> |
-                    <a href="#" style="color: #0000ff;">Geocities</a> |
-                    <a href="#" style="color: #00ff00;">👽 UFO Sightings 👽</a>
-                </p>
             </div>
 
             <div style="clear: both;"></div>
-
-            <!-- Game section continues with all the same JavaScript... -->
-            <div style="clear: both; margin: 20px 0;">
-                <div style="background: linear-gradient(45deg, #ff00ff, #00ffff); border: 5px solid #ffff00; padding: 20px;" class="alien-border">
-                    <h2 style="text-align: center; color: white; text-shadow: 2px 2px 0px #000;">
-                        🎮 RETRO GAME ARCADE 🎮
-                    </h2>
-                    <p style="text-align: center; color: white;">
-                        <span class="retro-glow">👽 Powered by Alien Gaming Technology 👽</span>
-                    </p>
-                    
-                    <table border="3" cellpadding="10" cellspacing="5" style="width: 100%; background: rgba(255,255,255,0.9);">
-                        <tr style="background: #ff6600; color: white;">
-                            <td><strong>Game</strong></td>
-                            <td><strong>Description</strong></td>
-                            <td><strong>Play</strong></td>
-                        </tr>
-                        <tr>
-                            <td style="background: #ffff99;">
-                                <strong>🐍 Snake Classic</strong>
-                            </td>
-                            <td style="background: #ffccff;">
-                                Use arrow keys to eat food and grow!
-                            </td>
-                            <td style="background: #ccffcc; text-align: center;">
-                                <a href="#" onclick="openGame('snake')" class="button">PLAY!</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="background: #ffff99;">
-                                <strong>⭕ Tic-Tac-Toe</strong>
-                            </td>
-                            <td style="background: #ffccff;">
-                                Classic X's and O's game!
-                            </td>
-                            <td style="background: #ccffcc; text-align: center;">
-                                <a href="#" onclick="openGame('tictactoe')" class="button">PLAY!</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="background: #ffff99;">
-                                <strong>🎯 Number Guess</strong>
-                            </td>
-                            <td style="background: #ffccff;">
-                                Guess the secret number 1-100!
-                            </td>
-                            <td style="background: #ccffcc; text-align: center;">
-                                <a href="#" onclick="openGame('guess')" class="button">PLAY!</a>
-                            </td>
-                        </tr>
-                    </table>
-                    
-                    <div id="gameFrame" style="display: none; margin-top: 20px; text-align: center;">
-                        <div style="background: rgba(0,0,0,0.9); border: 3px solid #ff0000; padding: 15px;" class="alien-border">
-                            <button onclick="closeGame()" class="button" style="margin-bottom: 10px;">❌ CLOSE GAME</button>
-                            <div id="gameContent"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="webring alien-border">
                 <strong>🌐 WEBRING 🌐</strong><br>
@@ -448,14 +341,9 @@
                 <small>This page has been visited <strong>1,337</strong> times since January 1, 2000</small><br>
                 <small class="retro-glow">👽 Alien technology integration: 100% complete 👽</small>
             </p>
-            <p>
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjRkY2NjAwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UG93ZXJlZCBieSBIVE1MPC90ZXh0Pgo8L3N2Zz4K" alt="Powered by HTML">
-                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjMDA5OTAwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWFkZSBvbiBXaW5kb3dzIDk4PC90ZXh0Pgo8L3N2Zz4K" alt="Made on Windows 98">
-            </p>
         </div>
     </div>
 
-    <!-- All the JavaScript game code stays the same -->
     <script>
         // Sparkle cursor effect
         document.addEventListener('mousemove', function(e) {
@@ -474,288 +362,6 @@
                 setTimeout(() => {
                     sparkle.remove();
                 }, 1000);
-            }
-        });
-
-        // Game variables
-        let currentGame = null;
-        let gameInterval = null;
-
-        function openGame(gameType) {
-            const gameFrame = document.getElementById('gameFrame');
-            const gameContent = document.getElementById('gameContent');
-            
-            closeGame();
-            
-            gameFrame.style.display = 'block';
-            currentGame = gameType;
-            
-            switch(gameType) {
-                case 'snake':
-                    startSnakeGame();
-                    break;
-                case 'tictactoe':
-                    startTicTacToe();
-                    break;
-                case 'guess':
-                    startNumberGuess();
-                    break;
-            }
-            
-            gameFrame.scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function closeGame() {
-            const gameFrame = document.getElementById('gameFrame');
-            const gameContent = document.getElementById('gameContent');
-            
-            if (gameInterval) {
-                clearInterval(gameInterval);
-                gameInterval = null;
-            }
-            
-            gameFrame.style.display = 'none';
-            gameContent.innerHTML = '';
-            currentGame = null;
-        }
-
-        // Snake Game
-        function startSnakeGame() {
-            const gameContent = document.getElementById('gameContent');
-            gameContent.innerHTML = `
-                <h3 style="color: #00ff00;">🐍 SNAKE GAME 🐍</h3>
-                <div class="game-controls">
-                    Score: <span id="snakeScore">0</span> | Use Arrow Keys to Move
-                </div>
-                <canvas id="snakeCanvas" class="game-canvas" width="400" height="400"></canvas>
-                <div class="game-controls">
-                    <button onclick="restartSnake()" class="button">🔄 RESTART</button>
-                </div>
-            `;
-            
-            initSnake();
-        }
-
-        let snake = [{x: 200, y: 200}];
-        let food = {x: 100, y: 100};
-        let dx = 0, dy = 0;
-        let score = 0;
-
-        function initSnake() {
-            const canvas = document.getElementById('snakeCanvas');
-            const ctx = canvas.getContext('2d');
-            
-            snake = [{x: 200, y: 200}];
-            food = {x: Math.floor(Math.random() * 20) * 20, y: Math.floor(Math.random() * 20) * 20};
-            dx = 0; dy = 0;
-            score = 0;
-            
-            document.addEventListener('keydown', changeDirection);
-            
-            gameInterval = setInterval(() => {
-                clearCanvas(ctx);
-                moveSnake();
-                drawFood(ctx);
-                drawSnake(ctx);
-                checkCollision();
-            }, 150);
-        }
-
-        function clearCanvas(ctx) {
-            ctx.fillStyle = '#000';
-            ctx.fillRect(0, 0, 400, 400);
-        }
-
-        function drawSnake(ctx) {
-            ctx.fillStyle = '#00ff00';
-            snake.forEach(part => {
-                ctx.fillRect(part.x, part.y, 20, 20);
-            });
-        }
-
-        function drawFood(ctx) {
-            ctx.fillStyle = '#ff0000';
-            ctx.fillRect(food.x, food.y, 20, 20);
-        }
-
-        function moveSnake() {
-            const head = {x: snake[0].x + dx, y: snake[0].y + dy};
-            snake.unshift(head);
-            
-            if (head.x === food.x && head.y === food.y) {
-                score += 10;
-                document.getElementById('snakeScore').textContent = score;
-                food = {x: Math.floor(Math.random() * 20) * 20, y: Math.floor(Math.random() * 20) * 20};
-            } else {
-                snake.pop();
-            }
-        }
-
-        function changeDirection(e) {
-            if (currentGame !== 'snake') return;
-            
-            const key = e.key;
-            if (key === 'ArrowUp' && dy === 0) { dx = 0; dy = -20; }
-            if (key === 'ArrowDown' && dy === 0) { dx = 0; dy = 20; }
-            if (key === 'ArrowLeft' && dx === 0) { dx = -20; dy = 0; }
-            if (key === 'ArrowRight' && dx === 0) { dx = 20; dy = 0; }
-        }
-
-        function checkCollision() {
-            const head = snake[0];
-            if (head.x < 0 || head.x >= 400 || head.y < 0 || head.y >= 400) {
-                gameOver();
-            }
-            for (let i = 1; i < snake.length; i++) {
-                if (head.x === snake[i].x && head.y === snake[i].y) {
-                    gameOver();
-                }
-            }
-        }
-
-        function gameOver() {
-            clearInterval(gameInterval);
-            alert('Game Over! Score: ' + score);
-        }
-
-        function restartSnake() {
-            clearInterval(gameInterval);
-            initSnake();
-        }
-
-        // Tic-Tac-Toe Game
-        function startTicTacToe() {
-            const gameContent = document.getElementById('gameContent');
-            gameContent.innerHTML = `
-                <h3 style="color: #00ff00;">⭕ TIC-TAC-TOE ⭕</h3>
-                <div class="game-controls">
-                    Current Player: <span id="currentPlayer">X</span>
-                </div>
-                <div class="tic-tac-toe" id="ticTacToeBoard"></div>
-                <div class="game-controls">
-                    <button onclick="restartTicTacToe()" class="button">🔄 NEW GAME</button>
-                </div>
-            `;
-            
-            initTicTacToe();
-        }
-
-        let ticTacToeBoard = ['', '', '', '', '', '', '', '', ''];
-        let currentPlayer = 'X';
-
-        function initTicTacToe() {
-            ticTacToeBoard = ['', '', '', '', '', '', '', '', ''];
-            currentPlayer = 'X';
-            document.getElementById('currentPlayer').textContent = currentPlayer;
-            
-            const board = document.getElementById('ticTacToeBoard');
-            board.innerHTML = '';
-            
-            for (let i = 0; i < 9; i++) {
-                const button = document.createElement('button');
-                button.onclick = () => makeMove(i);
-                button.id = `cell-${i}`;
-                board.appendChild(button);
-            }
-        }
-
-        function makeMove(index) {
-            if (ticTacToeBoard[index] === '') {
-                ticTacToeBoard[index] = currentPlayer;
-                document.getElementById(`cell-${index}`).textContent = currentPlayer;
-                
-                if (checkWinner()) {
-                    setTimeout(() => alert(`Player ${currentPlayer} wins!`), 100);
-                } else if (ticTacToeBoard.every(cell => cell !== '')) {
-                    setTimeout(() => alert("It's a tie!"), 100);
-                } else {
-                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-                    document.getElementById('currentPlayer').textContent = currentPlayer;
-                }
-            }
-        }
-
-        function checkWinner() {
-            const winPatterns = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8],
-                [0, 3, 6], [1, 4, 7], [2, 5, 8],
-                [0, 4, 8], [2, 4, 6]
-            ];
-            
-            return winPatterns.some(pattern => {
-                return pattern.every(index => ticTacToeBoard[index] === currentPlayer);
-            });
-        }
-
-        function restartTicTacToe() {
-            initTicTacToe();
-        }
-
-        // Number Guessing Game
-        function startNumberGuess() {
-            const gameContent = document.getElementById('gameContent');
-            gameContent.innerHTML = `
-                <h3 style="color: #00ff00;">🎯 GUESS THE NUMBER 🎯</h3>
-                <div class="game-controls">
-                    I'm thinking of a number between 1 and 100!<br>
-                    Attempts: <span id="attempts">0</span>
-                </div>
-                <div style="margin: 20px 0;">
-                    <input type="number" id="guessInput" min="1" max="100" 
-                           style="padding: 10px; font-size: 16px; width: 100px;">
-                    <button onclick="makeGuess()" class="button">GUESS!</button>
-                </div>
-                <div id="guessResult" class="game-controls"></div>
-                <div class="game-controls">
-                    <button onclick="restartGuess()" class="button">🔄 NEW NUMBER</button>
-                </div>
-            `;
-            
-            initNumberGuess();
-        }
-
-        let secretNumber = 0;
-        let attempts = 0;
-
-        function initNumberGuess() {
-            secretNumber = Math.floor(Math.random() * 100) + 1;
-            attempts = 0;
-            document.getElementById('attempts').textContent = attempts;
-            document.getElementById('guessResult').innerHTML = '';
-            document.getElementById('guessInput').value = '';
-        }
-
-        function makeGuess() {
-            const guess = parseInt(document.getElementById('guessInput').value);
-            const result = document.getElementById('guessResult');
-            
-            if (isNaN(guess) || guess < 1 || guess > 100) {
-                result.innerHTML = '<span style="color: #ff0000;">Please enter a number between 1 and 100!</span>';
-                return;
-            }
-            
-            attempts++;
-            document.getElementById('attempts').textContent = attempts;
-            
-            if (guess === secretNumber) {
-                result.innerHTML = `<span style="color: #00ff00;">🎉 CORRECT! You got it in ${attempts} attempts! 🎉</span>`;
-            } else if (guess < secretNumber) {
-                result.innerHTML = '<span style="color: #ffff00;">📈 Too low! Try higher!</span>';
-            } else {
-                result.innerHTML = '<span style="color: #ffff00;">📉 Too high! Try lower!</span>';
-            }
-            
-            document.getElementById('guessInput').value = '';
-        }
-
-        function restartGuess() {
-            initNumberGuess();
-        }
-
-        // Allow Enter key for number guess
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && currentGame === 'guess') {
-                makeGuess();
             }
         });
     </script>
