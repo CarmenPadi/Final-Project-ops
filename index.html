@@ -7,8 +7,8 @@
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            /* Look for the image in the same folder as the HTML file */
-            background-image: url('creature-bg.jpeg');
+            /* Correct path: Images folder with capital I */
+            background-image: url('Images/creature-bg.jpeg');
             background-repeat: repeat;
             background-size: 200px 200px;
             background-attachment: fixed;
@@ -184,8 +184,8 @@
 </head>
 <body>
     <header>
-        <!-- Look for the image in the same folder as the HTML file -->
-        <img src="welcomesite.png" alt="My Website Logo" style="width:200px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <!-- Correct path: Images/Welcomesite.png with capital I and capital W -->
+        <img src="Images/Welcomesite.png" alt="My Website Logo" style="width:200px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
         <div style="display:none; width:200px; height:150px; background:#ff0000; color:white; text-align:center; line-height:150px;">IMAGE NOT FOUND</div>
     </header>
 
@@ -241,12 +241,13 @@
                 </p>
 
                 <div style="background: rgba(255,255,255,0.8); padding: 10px; border: 2px solid #ff0000; margin: 10px 0;">
-                    <strong>📁 IMPORTANT: Your file structure should be:</strong><br>
-                    your-folder/<br>
+                    <strong>📁 Your file structure:</strong><br>
+                    Final-Project-ops/<br>
                     &nbsp;&nbsp;├── index.html<br>
-                    &nbsp;&nbsp;├── welcomesite.png<br>
-                    &nbsp;&nbsp;└── creature-bg.jpeg<br><br>
-                    <strong>Make sure all files are in the SAME folder!</strong>
+                    &nbsp;&nbsp;└── Images/<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── Welcomesite.png<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── creature-bg.jpeg<br>
+                    <strong>✅ This should work now!</strong>
                 </div>
 
                 <h3>🎮 What's New:</h3>
