@@ -45,7 +45,7 @@ pipeline {
     steps {
         script {
             echo 'Deploying to staging...'
-            sh "docker run -d -p 3000:4000 $DOCKER_IMAGE:$BUILD_NUMBER"
+            sh "docker run -d -p 4000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
         }
     }
 }
