@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-image: url('Nowhere 2.jpeg');
+            background-image: url('./images/nowhere2.jpeg');
             background-repeat: repeat;
             background-size: 200px 200px;
             background-attachment: fixed;
@@ -18,26 +18,21 @@
             overflow-x: auto;
         }
         
-<body>
-
-    <!-- This is where the image belongs -->
-    <header>
-        <img src="Images/Nowhere 2.jpeg" alt="My Website Logo" style="width:200px;">
-    </header>
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Test if image is loading */
+        .image-test {
+            width: 50px;
+            height: 50px;
+            background-image: url('./images/nowhere2.jpeg');
+            background-size: cover;
+            border: 2px solid #ff0000;
+            display: inline-block;
+            margin: 5px;
         }
 
-         .container {
+        .container {
             width: 800px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
-            /* border: 3px solid #ff0000; 
-            box-shadow: 5px 5px 15px #000000;
-            backdrop-filter: blur(2px);*/
         } 
 
         .header {
@@ -236,20 +231,15 @@
             border: 3px solid #00ff00;
             box-shadow: 0 0 15px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.1);
         }
-
-        /* Test if image is loading */
-        .image-test {
-            width: 50px;
-            height: 50px;
-            background-image: url('creature-bg.jpeg');
-            background-size: cover;
-            border: 2px solid #ff0000;
-            display: inline-block;
-            margin: 5px;
-        }
     </style>
 </head>
 <body>
+    <!-- This is where the image belongs -->
+    <header>
+        <img src="./images/nowhere2.jpeg" alt="My Website Logo" style="width:200px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div style="display:none; width:200px; height:150px; background:#ff0000; color:white; text-align:center; line-height:150px;">IMAGE NOT FOUND</div>
+    </header>
+
     <div class="container">
         <div class="header">
             <h1>🌟 Welcome to My <span class="blink">AWESOME</span> Website! 🌟</h1>
@@ -266,9 +256,9 @@
         </div>
 
         <div class="construction">
-            <img src="/placeholder.svg?height=50&width=100" alt="Under Construction" style="vertical-align: middle;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjRkZGRjAwIi8+Cjx0ZXh0IHg9IjUwIiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5VTkRFUiBDT05TVFJVQ1RJT048L3RleHQ+Cjwvc3ZnPgo=" alt="Under Construction" style="vertical-align: middle;">
             <strong>🚧 UNDER CONSTRUCTION 🚧</strong>
-            <img src="/placeholder.svg?height=50&width=100" alt="Under Construction" style="vertical-align: middle;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiB2aWV3Qm94PSIwIDAgMTAwIDUwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiBmaWxsPSIjRkZGRjAwIi8+Cjx0ZXh0IHg9IjUwIiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5VTkRFUiBDT05TVFJVQ1RJT048L3RleHQ+Cjwvc3ZnPgo=" alt="Under Construction" style="vertical-align: middle;">
             <br><small>👽 Alien technology being integrated... 👽</small>
             <br><small>Image test: <span class="image-test"></span> (Should show creature if image loads)</small>
         </div>
@@ -296,9 +286,9 @@
 
                 <h4>⭐ Cool Sites:</h4>
                 <p>
-                    <img src="/placeholder.svg?height=31&width=88" alt="Netscape Now"><br>
-                    <img src="/placeholder.svg?height=31&width=88" alt="Made with Notepad"><br>
-                    <img src="/placeholder.svg?height=31&width=88" alt="Best viewed in 800x600">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjMDA2NkZGIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TmV0c2NhcGUgTm93PC90ZXh0Pgo8L3N2Zz4K" alt="Netscape Now"><br>
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjRkY2NjAwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWFkZSB3aXRoIE5vdGVwYWQ8L3RleHQ+Cjwvc3ZnPgo=" alt="Made with Notepad"><br>
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjMDA5OTAwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+QmVzdCB2aWV3ZWQgaW4gODAweDYwMDwvdGV4dD4KPC9zdmc+Cg==" alt="Best viewed in 800x600">
                 </p>
             </div>
 
@@ -313,11 +303,14 @@
 
                 <div style="background: rgba(255,255,255,0.8); padding: 10px; border: 2px solid #ff0000; margin: 10px 0;">
                     <strong>📁 Image Setup Instructions:</strong><br>
-                    1. Save your creature image as "creature-bg.jpeg" in the same folder as this HTML file<br>
-                    2. Or change line 8 in the CSS to match your image filename<br>
-                    3. Refresh the page to see your alien background!
+                    1. Create a folder called "images" (lowercase) in the same directory as this HTML file<br>
+                    2. Rename your image to "nowhere2.jpeg" (no spaces, lowercase)<br>
+                    3. Place the image in the "images" folder<br>
+                    4. Your folder structure should be: index.html and images/nowhere2.jpeg<br>
+                    5. Refresh the page to see your alien background!
                 </div>
 
+                <!-- Rest of the content remains the same -->
                 <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; background: rgba(255,255,204,0.9);">
                     <tr style="background: #ff6600; color: white;">
                         <td><strong>Last Updated:</strong></td>
@@ -378,6 +371,7 @@
 
             <div style="clear: both;"></div>
 
+            <!-- Game section continues with all the same JavaScript... -->
             <div style="clear: both; margin: 20px 0;">
                 <div style="background: linear-gradient(45deg, #ff00ff, #00ffff); border: 5px solid #ffff00; padding: 20px;" class="alien-border">
                     <h2 style="text-align: center; color: white; text-shadow: 2px 2px 0px #000;">
@@ -455,8 +449,8 @@
                 <small class="retro-glow">👽 Alien technology integration: 100% complete 👽</small>
             </p>
             <p>
-                <img src="/placeholder.svg?height=31&width=88" alt="Powered by HTML">
-                <img src="/placeholder.svg?height=31&width=88" alt="Made on Windows 98">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjRkY2NjAwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+UG93ZXJlZCBieSBIVE1MPC90ZXh0Pgo8L3N2Zz4K" alt="Powered by HTML">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODgiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCA4OCAzMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9Ijg4IiBoZWlnaHQ9IjMxIiBmaWxsPSIjMDA5OTAwIi8+Cjx0ZXh0IHg9IjQ0IiB5PSIyMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEwIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TWFkZSBvbiBXaW5kb3dzIDk4PC90ZXh0Pgo8L3N2Zz4K" alt="Made on Windows 98">
             </p>
         </div>
     </div>
