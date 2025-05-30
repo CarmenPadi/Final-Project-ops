@@ -24,6 +24,19 @@
             background: rgba(255, 255, 255, 0.95);
         } 
 
+        .spin-image {
+            animation: spin 3s linear infinite;
+        }
+
+      @keyframes spin {
+        from {
+            transform: rotate(0deg);
+            }
+        to {
+            transform: rotate(360deg);
+            }
+        }
+
        /* .header {
             background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
             padding: 20px;
@@ -201,10 +214,10 @@
 </head>
 <body>
     <header>
-        <img src="./Images/godflame.gif" alt="Godflame" style="width:200px; display:block; margin: 12px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <img src="./Images/rotatingwelcome.gif" alt="My Website Logo" style="width:400px; display:block; margin: 20px auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <img src="./Images/godflame.gif" alt="Godflame" style="width:50px; display:block; margin: 30px auto;" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <div style="display:none;">
+        <div style="display: flex; justify-content: center; gap: 20px;">
+        <img src="./Images/godflame.gif" alt="Godflame" style="width:250px; display:inline-block; margin: 12px;">
+        <img src="./Images/rotatingwelcome.gif" alt="My Website Logo" style="width:400px; display:inline-block; margin: 20px auto;">
+        <img src="./Images/godflame.gif" alt="Godflame" style="width:250px; display:inline-block; margin: 30px auto;">
         </div>
     </header>
 
