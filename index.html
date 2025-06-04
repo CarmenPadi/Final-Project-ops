@@ -226,31 +226,23 @@
         } 
 
 
-        .option-grid {
+        .checkbox-list {
           display: flex;
-          flex-wrap: wrap;
+          flex-direction: column;
           gap: 15px;
-          margin-top: 20px;
-          justify-content: center;
-        }
-        
-        .option-box {
-          width: 100px;
-          height: 100px;
-          background-color: #444;
+          padding: 20px;
+          font-family: 'Comic Sans MS', cursive;
           color: white;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-          font-family: 'Comic Sans MS';
-          border-radius: 10px;
-          transition: background-color 0.3s;
         }
         
-        .option-box:hover {
-          background-color: #666;
-        }        
+        .checkbox-item {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 18px;
+          cursor: pointer;
+        }
+      
 
     </style>
 </head>
@@ -390,14 +382,33 @@
                 <img src="./Images/powerrangers.jpg" alt="PowerRangers" style="width:600px; display:block; margin: 20px auto;"> 
                 <h3 style="color:red">ITS MORPHIN TIME!!1!</h3> 
                 <h3>Which Mighty Morphin Power Ranger are you?</h3>
-                <div class="option-grid">
-                  <div class="option-box" onclick="selectOption(1)">Dragonzord!</div>
-                  <div class="option-box" onclick="selectOption(2)">Option 2</div>
-                  <div class="option-box" onclick="selectOption(3)">Option 3</div>
-                  <div class="option-box" onclick="selectOption(4)">Option 4</div>
-                  <div class="option-box" onclick="selectOption(5)">Option 5</div>
-                  <div class="option-box" onclick="selectOption(6)">Option 6</div>
+                <div class="checkbox-list">
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="option1">
+                    Option 1
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="option2">
+                    Option 2
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="option3">
+                    Option 3
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="option4">
+                    Option 4
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="option5">
+                    Option 5
+                  </label>
+                  <label class="checkbox-item">
+                    <input type="checkbox" name="option6">
+                    Option 6
+                  </label>
                 </div>
+
             </div>
             </div>
         </div>  
