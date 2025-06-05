@@ -74,7 +74,17 @@
             border: 3px solid #ff00ff;
             padding: 15px;
             margin: 15px 0;
-        }        
+        }   
+
+        .header h1 {
+            color: #ffffff;
+            text-shadow: 3px 3px 0px #000000;
+            font-size: 36px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            gap: 20px;
+        }
 
        /* .header {
             background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
@@ -82,14 +92,6 @@
             text-align: center;
             border-bottom: 5px solid #000;
         } 
-
-        .header h1 {
-            color: #ffffff;
-            text-shadow: 3px 3px 0px #000000;
-            font-size: 36px;
-            margin: 0;
-            animation: bounce 2s infinite;
-        }
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -260,7 +262,7 @@
     </header>
 
   <!--  <div class="container"> -->
-        <div class="header">
+        <div class="header h1">
             <p style="font-family: 'Comic Sans MS'; color:white; margin-top: 70px;">HIYAS!!! WELCOME TO MY HOMEPAGE!<br> 
                 This is the <span class="retro-glow">INTERNET!!!</span> <br>
                 I made this webiste for my DevOps project<br> 
@@ -276,7 +278,9 @@
                 <img src="./Images/rabbits.png" alt="Clickable image" class="spin-image" style="width:200px; margin-top: 80px;">
                </a>
             </marquee>
-                <h3 style="color:white;">click on the rabbits for a surprise</h3>  
+            <div class="header h1">
+                <p style="color:white; animation: bounce 2s infinite;">click on the rabbits for a surprise</p>  
+                </div>
         </div>
             
         
@@ -381,34 +385,35 @@
             <div class="container">
                 <img src="./Images/powerrangers.jpg" alt="PowerRangers" style="width:600px; display:block; margin: 20px auto;"> 
                 <h3 style="color:red">ITS MORPHIN TIME!!1!</h3> 
-                <h3>Which Mighty Morphin Power Ranger are you?</h3>
-                <div class="checkbox-list">
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="option1">
-                    Option 1
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="option2">
-                    Option 2
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="option3">
-                    Option 3
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="option4">
-                    Option 4
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="option5">
-                    Option 5
-                  </label>
-                  <label class="checkbox-item">
-                    <input type="checkbox" name="option6">
-                    Option 6
-                  </label>
+                <h3 style="text-align: center;"> Which Mighty Morphin Power Ranger are you?</h3>
+                <div class="container">
+                    <div class="checkbox-list">
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="option1" style="color:green";>
+                        Dragonzord!
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="option2" style="color:black";>
+                        Mastodon!
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="option3" style="color:pink";>
+                        Pterodactyl!
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="option4" style="color:blue";>
+                        Triceratops!
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="option5" style="color:yellow";>
+                        Saber-Toothed Tiger
+                      </label>
+                      <label class="checkbox-item">
+                        <input type="checkbox" name="option6" style="color:red";>
+                        Tyrannosaurus!
+                      </label>
+                    </div>
                 </div>
-
             </div>
             </div>
         </div>  
@@ -447,7 +452,7 @@
                 </div>
             
         <div class="footer">
-            <p>
+            <p style="color: white;">
                 <span class="blink">★</span> Copyright © 2000 xXx_WebMaster_2000_xXx <span class="blink">★</span><br>
                 Best viewed with Internet Explorer 6.0 at 800x600 resolution<br>
                 <small>This page has been visited <strong>1,337</strong> times since January 1, 2000</small><br>
@@ -457,25 +462,19 @@
     </div>       
 
     <script>
-        // Sparkle cursor effect
-        document.addEventListener('mousemove', function(e) {
-            if (Math.random() > 0.95) {
-                const sparkle = document.createElement('div');
-                sparkle.innerHTML = Math.random() > 0.5 ? '✨' : '👽';
-                sparkle.style.position = 'fixed';
-                sparkle.style.left = e.clientX + 'px';
-                sparkle.style.top = e.clientY + 'px';
-                sparkle.style.pointerEvents = 'none';
-                sparkle.style.zIndex = '9999';
-                sparkle.style.color = '#00ff00';
-                sparkle.style.textShadow = '0 0 10px #00ff00';
-                document.body.appendChild(sparkle);
-                
-                setTimeout(() => {
-                    sparkle.remove();
-                }, 1000);
-            }
-        });
+        const img = document.createElement('img');
+        img.src = './Images/cursor.gif';
+        img.style.width = '20px';
+        img.style.position = 'fixed';
+        img.style.left = e.clientX + 'px';
+        img.style.top = e.clientY + 'px';
+        img.style.pointerEvents = 'none';
+        img.style.zIndex = '9999';
+        document.body.appendChild(img);
+        
+        setTimeout(() => {
+          img.remove();
+        }, 1000);
     </script>
 </body>
 </html>
