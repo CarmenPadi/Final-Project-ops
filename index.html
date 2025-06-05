@@ -32,7 +32,7 @@
             padding: 0;
             color: #000;
             overflow-x: auto;
-            height: 100vh;
+            /*height: 100vh;*/
         }
 
         .section3 {
@@ -46,7 +46,7 @@
             padding: 0;
             color: #000;
             overflow-x: auto;
-            height: 100vh;
+           /* height: 100vh;*/
         }        
 
         .container {
@@ -77,22 +77,16 @@
             margin: 15px 0;
         }   
 
-        .headerh1 {
+        .header {
             color: #ffffff;
             text-shadow: 3px 3px 0px #000000;
-            font-size: 36px;
+            font-size: 20px;
             display: flex;
             justify-content: space-between;
             margin: 0;
             gap: 20px;
         }
 
-        .header {
-            background: linear-gradient(to right, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 5px solid #000;
-        } 
 
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
@@ -109,35 +103,9 @@
             51%, 100% { opacity: 0; }
         } 
 
-       /* .marquee {
-            background: rgba(255, 255, 0, 0.9);
-            border: 2px solid #ff0000;
-            padding: 10px;
-            margin: 10px 0;
-        }*/
-
         .content {
             padding: 20px;
         }
-
-        /*.button {
-            background: linear-gradient(to bottom, #ff0000, #cc0000);
-            color: white;
-            border: 3px outset #ff0000;
-            padding: 10px 20px;
-            font-family: 'Comic Sans MS', cursive;
-            font-weight: bold;
-            cursor: pointer;
-            margin: 5px;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 2px 2px 5px #000;
-        }
-
-        .button:hover {
-            background: linear-gradient(to bottom, #ff3333, #ff0000);
-            border: 3px inset #ff0000;
-        }*/
 
         .counter {
             background: rgba(0, 0, 0, 0.9);
@@ -222,7 +190,7 @@
     </header>
 
 
-        <div class="headerh1">
+        <div class="header">
             <p style="font-family: 'Comic Sans MS'; color:white; margin-top: 70px;">HIYAS!!! WELCOME TO MY HOMEPAGE!<br> 
                 This is the <span class="retro-glow">INTERNET!!!</span> <br>
                 I made this webiste for my DevOps project<br> 
@@ -232,29 +200,17 @@
             </p>        
         </div>
 
-            <div class="marquee">
-            <marquee behavior="scroll" direction="left" scrollamount="5">
                <a href="secondpage.html"> 
                 <img src="./Images/rabbits.png" alt="Clickable image" class="spin-image" style="width:200px; margin-top: 80px;">
                </a>
-            </marquee>
-            <div class="headerh1">
-                <p style="color:white; animation: bounce 2s infinite;">click on the rabbits for a surprise</p>  
+            <div class="header">
+                <p style="color:white; animation: bounce 2s infinite; font-family: 'Verdana', cursive, sans-serif;">click on the rabbits for a surprise</p>  
                 </div>
-        </div>
             
-
-                <h4>🎵 Now Playing:</h4>
-                <p style="background: rgba(0,0,0,0.9); color: #00ff00; padding: 5px; font-family: monospace;">
-                    ♪ X-Files Theme ♪
-                </p>
-            </div>
-
-            <div style="clear: both;"></div>
 
         </div>
         <div class="section2">
-                <div style="text-align: center;">
+                <div style="text-align: center; font-family: 'Verdana', cursive, sans-serif;">
                 <img src="./Images/Myinterests.png" alt="My Interests" style="width:700px; display:block; margin: 20px auto;">
                 <h3>this is where i write about things that interest me</h3> 
                 <h3>things I play:</h3> 
@@ -262,7 +218,7 @@
             </div>   
             <div class="container">
                 <img src="./Images/powerrangers.jpg" alt="PowerRangers" style="width:600px; display:block; margin: 20px auto;"> 
-                <h3 style="color:red">ITS MORPHIN TIME!!1!</h3> 
+                <h3 style="color:red; font-family: 'Verdana', cursive, sans-serif;">ITS MORPHIN TIME!!1!</h3> 
                 <h3 style="text-align: center;"> Which Mighty Morphin Power Ranger are you?</h3>
                 <div class="container">
                     <div class="checkbox-list">
@@ -301,6 +257,7 @@
                 <div style="text-align: center; gap: 20px; margin-top: 30px;">
                 <img src="./Images/skeletonburning.gif" alt="Divider" style="width:400px; display:block; margin: 20px auto;">
             </div>  
+            
                 <div class="container">
                 <div class="guestbook alien-border">
                     <h3> Sign My Guestbook! </h3>
