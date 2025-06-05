@@ -55,6 +55,8 @@
             background: rgba(255, 255, 255, 0.95);
         } 
 
+        cursor: url('./Images/cursor.gif'), auto;
+
         .spin-image {
             animation: spin 3s linear infinite;
         }
@@ -116,15 +118,6 @@
 
         .content {
             padding: 20px;
-        }
-
-        .sidebar {
-            float: left;
-            width: 200px;
-            background: rgba(0, 255, 255, 0.9);
-            border: 2px solid #0000ff;
-            padding: 15px;
-            margin-right: 20px;
         }
 
         .main-content {
@@ -207,15 +200,6 @@
             border: 1px solid #000;
             padding: 5px;
         }
-
-        .flame-text {
-            background: linear-gradient(to top, #ff0000, #ff6600, #ffff00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: bold;
-            font-size: 24px;
-        } 
 
         .retro-glow {
             text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
@@ -312,13 +296,6 @@
                     <br><br>
                     <span class="retro-glow">👽 Now featuring authentic alien technology from Area 51! 👽</span>
                 </p>
-
-                <div class="test-images">
-                    <strong>🔍 IMAGE PATH TESTING:</strong><br>
-                    Which one shows your image?<br>
-                    <div class="test-img test1"></div> ./Images/creature-bg.jpeg<br>
-                    <div class="test-img test2"></div> Images/creature-bg.jpeg<br>
-                </div>
 
                 <div style="background: rgba(255,255,255,0.8); padding: 10px; border: 2px solid #ff0000; margin: 10px 0;">
                     <strong>📁 DEBUGGING CHECKLIST:</strong><br>
@@ -457,23 +434,5 @@
         </div>               
         </div>  
     </div>       
-
-    <script>
-       document.addEventListener('mousemove', function(e) { 
-        const img = document.createElement('img');
-        img.src = './Images/cursor.gif';
-        img.style.width = '20px';
-        img.style.position = 'fixed';
-        img.style.left = e.clientX + 'px';
-        img.style.top = e.clientY + 'px';
-        img.style.pointerEvents = 'none';
-        img.style.zIndex = '9999';
-        document.body.appendChild(img);
-        
-        setTimeout(() => {
-          img.remove();
-        }, 1000);
-        });   
-    </script>
 </body>
 </html>
