@@ -18,7 +18,6 @@
             padding: 0;
             color: #000;
             overflow-x: auto;
-            /*height: 100vh;*/
         }
         
         .section2 {
@@ -32,7 +31,6 @@
             padding: 0;
             color: #000;
             overflow-x: auto;
-            /*height: 100vh;*/
         }
 
         .section3 {
@@ -46,7 +44,6 @@
             padding: 0;
             color: #000;
             overflow-x: auto;
-           /* height: 100vh;*/
         }        
 
         .container {
@@ -140,7 +137,7 @@
         }
 
         td {
-            border: 1px solid #000;
+            border: none;
             padding: 5px;
         }
 
@@ -182,6 +179,34 @@
           25% { opacity: 0; color: orange; }
           50% { opacity: 1; color: yellow; }
           75% { opacity: 0; color: green; }
+        }
+
+        .radio-list-container {
+          width: 300px; 
+          margin: 0 auto; 
+          padding: 20px;
+          background: rgba(255, 255, 255, 0.8); 
+          border: 2px solid #000; 
+          border-radius: 10px;
+        }
+
+        .flashing-purple {
+          animation: flashPurple 1s infinite;
+        }
+        
+        @keyframes flashPurple {
+          0%, 100% {
+            background-color: #800080;
+          }
+          50% {
+            background-color: #ff00ff;
+          }
+        }
+
+        .gif-background {
+          background-image: url('./Images/smiley.gif');
+          background-repeat: repeat;
+          background-size: auto;
         }
 
         *{
@@ -235,36 +260,44 @@
                 <img src="./Images/Myinterests.png" alt="My Interests" style="width:700px; display:block; margin: 20px auto;">
                 <h3>this is where i write about things that interest me</h3> 
                 <h3>things I play:</h3> 
-                <img src="./Images/softballheader.gif" alt="Softball" style="width:400px; display:block; margin: 20px auto;">                    
+                <img src="./Images/softballheader.gif" alt="Softball" style="width:400px;">
+                <img src="./Images/drums.gif" alt="Softball">
+                <img src="./Images/drums1.gif" alt="Softball">
+                <img src="./Images/drumsgirl.gif" alt="Softball">
+                <img src="./Images/drumsguy.gif" alt="Softball">
+                <img src="./Images/gurldrums.gif" alt="Softball">
+                <img src="./Images/moeller.gif" alt="Softball">
+                <img src="./Images/softball1.png" alt="Softball">
+                <img src="./Images/jacks.gif" alt="Softball">
             </div>   
-            <div class="container">
+            <div class="container gif-background">
                 <img src="./Images/powerrangers.jpg" alt="PowerRangers" style="width:600px; display:block; margin: 20px auto;"> 
                 <h3 style="color:red; font-family: 'Verdana', cursive, sans-serif;">ITS MORPHIN TIME!!1!</h3> 
                 <h3 style="text-align: center;"> Which Mighty Morphin Power Ranger are you?</h3>
-                <div class="container">
+                <div class="radio-list-container flashing-purple">
                     <div class="checkbox-list">
                       <label class="checkbox-item" style="color:green";>
-                        <input type="checkbox" name="option1";>
+                        <input type="radio" name="option1";>
                         Dragonzord!
                       </label>
                       <label class="checkbox-item" style="color:black";>
-                        <input type="checkbox" name="option2";>
+                        <input type="radio" name="option2";>
                         Mastodon!
                       </label>
                       <label class="checkbox-item" style="color:pink";>
-                        <input type="checkbox" name="option3";>
+                        <input type="radio" name="option3";>
                         Pterodactyl!
                       </label>
                       <label class="checkbox-item" style="color:blue">
-                        <input type="checkbox" name="option4";>
+                        <input type="radio" name="option4";>
                         Triceratops!
                       </label>
                       <label class="checkbox-item" style="color:yellow";>
-                        <input type="checkbox" name="option5";>
+                        <input type="radio" name="option5";>
                         Saber-Toothed Tiger
                       </label>
                       <label class="checkbox-item" style="color:red";>
-                        <input type="checkbox" name="option6";>
+                        <input type="radio" name="option6";>
                         Tyrannosaurus!
                       </label>
                     </div>
@@ -282,7 +315,7 @@
                 <div class="container">
                 <div class="guestbook alien-border">
                     <h3> Sign My Guestbook! </h3>
-                    <p>Please sign my guestbook and let me know what you think of my site!</p>
+                    <p>Please sign my guestbook and let me know what you don't think of my site!</p>
                     <form>
                         <table>
                             <tr>
