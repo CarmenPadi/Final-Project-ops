@@ -27,7 +27,7 @@
             background-image: url('./Images/WindowsBackground.png');
             background-repeat: repeat;
             background-size: 400px 200px;
-            background-attachment: fixed;
+            /*background-attachment: fixed;*/
             background-position: 0 0;
             margin: 0;
             padding: 0;
@@ -76,7 +76,7 @@
             margin: 15px 0;
         }   
 
-        .header h1 {
+        .headerh1 {
             color: #ffffff;
             text-shadow: 3px 3px 0px #000000;
             font-size: 36px;
@@ -262,7 +262,7 @@
     </header>
 
   <!--  <div class="container"> -->
-        <div class="header h1">
+        <div class="headerh1">
             <p style="font-family: 'Comic Sans MS'; color:white; margin-top: 70px;">HIYAS!!! WELCOME TO MY HOMEPAGE!<br> 
                 This is the <span class="retro-glow">INTERNET!!!</span> <br>
                 I made this webiste for my DevOps project<br> 
@@ -278,7 +278,7 @@
                 <img src="./Images/rabbits.png" alt="Clickable image" class="spin-image" style="width:200px; margin-top: 80px;">
                </a>
             </marquee>
-            <div class="header h1">
+            <div class="headerh1">
                 <p style="color:white; animation: bounce 2s infinite;">click on the rabbits for a surprise</p>  
                 </div>
         </div>
@@ -388,28 +388,28 @@
                 <h3 style="text-align: center;"> Which Mighty Morphin Power Ranger are you?</h3>
                 <div class="container">
                     <div class="checkbox-list">
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="option1" style="color:green";>
+                      <label class="checkbox-item" style="color:green";>
+                        <input type="checkbox" name="option1";>
                         Dragonzord!
                       </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="option2" style="color:black";>
+                      <label class="checkbox-item" style="color:black";>
+                        <input type="checkbox" name="option2";>
                         Mastodon!
                       </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="option3" style="color:pink";>
+                      <label class="checkbox-item" style="color:pink";>
+                        <input type="checkbox" name="option3";>
                         Pterodactyl!
                       </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="option4" style="color:blue";>
+                      <label class="checkbox-item" style="color:blue">
+                        <input type="checkbox" name="option4";>
                         Triceratops!
                       </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="option5" style="color:yellow";>
+                      <label class="checkbox-item" style="color:yellow";>
+                        <input type="checkbox" name="option5";>
                         Saber-Toothed Tiger
                       </label>
-                      <label class="checkbox-item">
-                        <input type="checkbox" name="option6" style="color:red";>
+                      <label class="checkbox-item" style="color:red";>
+                        <input type="checkbox" name="option6";>
                         Tyrannosaurus!
                       </label>
                     </div>
@@ -462,6 +462,7 @@
     </div>       
 
     <script>
+       document.addEventListener('mousemove', function(e) { 
         const img = document.createElement('img');
         img.src = './Images/cursor.gif';
         img.style.width = '20px';
@@ -475,6 +476,7 @@
         setTimeout(() => {
           img.remove();
         }, 1000);
+        });   
     </script>
 </body>
 </html>
