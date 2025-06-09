@@ -78,9 +78,11 @@ pipeline {
             steps {
                 script {
                     echo 'Deploying to production...'
+                    sh "docker ps -q --filter 'ancestor=$DOCKER_IMAGE:$BUILD_NUMBER' | xargs -r docker stop || true"
+                    sh "docker ps -a -q --filter 'ancestor=$DOCKER_IMAGE:$BUILD_NUMBER' | xargs -r docker rm || true"
+                    sh "docker run -d -p 3000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
                     sh "echo ${BUILD_NUMBER} > last_successful_version.txt"
                     archiveArtifacts artifacts: 'last_successful_version.txt', onlyIfSuccessful: true
-                }
             }
         }
     }
