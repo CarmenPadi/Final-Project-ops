@@ -40,6 +40,16 @@ pipeline {
                 }
             }
         }
+
+	stage('Cleanup Docker Containers') {
+	    steps {
+	        script {
+	            echo 'Cleaning up Docker containers'
+	            sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
+	            sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
+	        }
+	    }
+	}	    	    
 	    
 	stage('Deploy to Staging') {
     steps {
@@ -66,8 +76,7 @@ pipeline {
 
     post {
         always {
-            // Cleanup: stop and remove containers after the build is finished
-            echo 'Cleaning up Docker containers'
+            echo 'Build completed
             // sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
             // sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
         }
