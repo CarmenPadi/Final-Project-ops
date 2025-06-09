@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     echo "Building Docker images via docker-compose"
-                    dockerComposeBuild()
+                    sh 'docker-compose build'
                 }
             }
         }
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 script {
                     echo "Starting containers with docker-compose"
-                    dockerComposeUp(detached: true)
+                    sh 'docker-compose up -d'
                 }
             }
         }
