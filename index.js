@@ -1,14 +1,33 @@
+const redis = require('redis');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+const client = redis.createClient({
+  socket: {
+    host: 'redis',
+    port: 6379
+  }
+});
+
+client.on('error', (err) => {
+  console.error('Redis Client Error:', err);
+});
+
+(async () => {
+  try {
+    await client.connect();
+    console.log('Connected to Redis successfully!');
+  } catch (err) {
+    console.error('Failed to connect to Redis:', err);
+  }
+})();
+
 const server = http.createServer((req, res) => {
   let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
 
-  // Get the file extension
   const extname = String(path.extname(filePath)).toLowerCase();
 
-  // Set the proper content type for different file types
   const mimeTypes = {
     '.html': 'text/html',
     '.js': 'text/javascript',
