@@ -4,23 +4,9 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'my-devops-app'
         DOCKER_TAG = 'latest'
-        VERSION = "${BUILD_NUMBER}"
-        TEST_CONTAINER_NAME = "test_container_${BUILD_NUMBER}"
-        STAGING_CONTAINER_NAME = "staging_container_${BUILD_NUMBER}"
-        PROD_CONTAINER_NAME = "prod_container_${BUILD_NUMBER}"
     }
 
     stages {
-
-        stage('Initial Cleanup (Test Containers Only)') {
-            steps {
-                script {
-                    echo 'Cleaning up old test containers (non-critical)'
-                    sh "docker rm -f $TEST_CONTAINER_NAME || true"
-                }
-            }
-        }
-
         stage('Checkout') {
             steps {
                 script {
@@ -35,18 +21,29 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    echo "Building Docker image with version tag ${VERSION}"
-                    sh "docker build -t $DOCKER_IMAGE:$VERSION ."
-                    sh "docker tag $DOCKER_IMAGE:$VERSION $DOCKER_IMAGE:$DOCKER_TAG"
+                    echo "Building Docker image with tag ${DOCKER_TAG}"
+                    def version = "${BUILD_NUMBER}"
+                    sh "docker build -t $DOCKER_IMAGE:$version ."
+                    sh "docker tag $DOCKER_IMAGE:$version $DOCKER_IMAGE:latest"
                 }
             }
-        }
+         }
 
         stage('Run Tests') {
             steps {
                 script {
-                    echo "Running tests using container: $TEST_CONTAINER_NAME"
-                    sh "docker run -d --name $TEST_CONTAINER_NAME -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG"
+                    echo "Running tests in Docker container"
+                    sh 'docker run -d -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG'
+                }
+            }
+        }
+
+        stage('Cleanup Docker Containers') {
+            steps {
+                script {
+                    echo 'Cleaning up Docker containers'
+                    sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
+                    sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
                 }
             }
         }
@@ -54,8 +51,8 @@ pipeline {
         stage('Deploy to Staging') {
             steps {
                 script {
-                    echo "Deploying to staging with container: $STAGING_CONTAINER_NAME"
-                    sh "docker run -d --name $STAGING_CONTAINER_NAME -p 4000:3000 $DOCKER_IMAGE:$VERSION"
+                    echo 'Deploying to staging...'
+                    sh "docker run -d -p 4000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
                 }
             }
         }
@@ -63,10 +60,8 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 script {
-                    echo "Deploying to production with container: $PROD_CONTAINER_NAME"
-                    sh "docker run -d --name $PROD_CONTAINER_NAME -p 5000:3000 $DOCKER_IMAGE:$VERSION"
-
-                    sh "echo ${VERSION} > last_successful_version.txt"
+                    echo 'Deploying to production...'
+                    sh "echo ${BUILD_NUMBER} > last_successful_version.txt"
                     archiveArtifacts artifacts: 'last_successful_version.txt', onlyIfSuccessful: true
                 }
             }
@@ -75,27 +70,24 @@ pipeline {
 
     post {
         always {
-            echo 'Build completed.'
-            sh "docker rm -f $TEST_CONTAINER_NAME || true"
+            echo 'Build completed'
         }
-
         success {
             emailext (
                 to: 'm.padillatrevino.558@studms.ug.edu.pl',
                 from: 'mc.padillat@gmail.com',
                 subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                body: "The Jenkins job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' completed successfully.",
-                mimeType: 'text/plain'
+                body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' succeeded.",
+                mimeType: 'text/plain',
             )
         }
-
         failure {
             emailext (
                 to: 'm.padillatrevino.558@studms.ug.edu.pl',
                 from: 'mc.padillat@gmail.com',
                 subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                body: "The Jenkins job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' failed. Rollback triggered.",
-                mimeType: 'text/plain'
+                body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' failed.",
+                mimeType: 'text/plain',
             )
             echo 'Deployment failed. Triggering rollback...'
             sh './rollback.sh'
