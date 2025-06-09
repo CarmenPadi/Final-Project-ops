@@ -56,14 +56,14 @@ pipeline {
             }
         }
 
-        stage('Force Failure for Rollback Test') {
-            steps {
-                script {
-                    echo "🚨 Forcing failure to test rollback"
-                    error("Intentional failure to trigger rollback")
-                }
-            }
-        }
+        //stage('Force Failure for Rollback Test') {
+          //  steps {
+            //    script {
+              //      echo "🚨 Forcing failure to test rollback"
+                //    error("Intentional failure to trigger rollback")
+                //}
+            //}
+       // }
 
         stage('Deploy to Staging') {
             steps {
