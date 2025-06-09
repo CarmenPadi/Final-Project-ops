@@ -1,0 +1,22 @@
+---
+- name: Local development setup
+  hosts: localhost
+  connection: local
+  become: false
+
+  tasks:
+    - name: Ensure Git is installed
+      homebrew:
+        name: git
+        state: present
+
+    - name: Ensure Node.js is installed
+      homebrew:
+        name: node
+        state: present
+
+    - name: Print success message
+      debug:
+        msg: "Ansible finished setting up your dev environment!"
+
+
