@@ -14,6 +14,18 @@
       homebrew:
         name: node
         state: present
+          
+    - name: Install app dependencies
+      ansible.builtin.command: npm install
+      args:
+        chdir: /path/to/your/project
+
+    - name: Start the app
+      ansible.builtin.command: npm start
+      args:
+        chdir: /path/to/your/project
+      async: 600
+      poll: 0
 
     - name: Print success message
       debug:
