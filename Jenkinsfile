@@ -2,19 +2,32 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'my-devops-app' // Name of the Docker image
-        DOCKER_TAG = 'latest' // Docker tag
+        DOCKER_IMAGE = 'my-devops-app'
+        DOCKER_TAG = 'latest'
+        VERSION = "${BUILD_NUMBER}"
+        TEST_CONTAINER_NAME = "test_container_${BUILD_NUMBER}"
+        STAGING_CONTAINER_NAME = "staging_container_${BUILD_NUMBER}"
+        PROD_CONTAINER_NAME = "prod_container_${BUILD_NUMBER}"
     }
 
     stages {
+
+        stage('Initial Cleanup (Test Containers Only)') {
+            steps {
+                script {
+                    echo 'Cleaning up old test containers (non-critical)'
+                    sh "docker rm -f $TEST_CONTAINER_NAME || true"
+                }
+            }
+        }
+
         stage('Checkout') {
             steps {
                 script {
-                    // Clone the repository and check out the main branch explicitly
                     echo "Cloning repository and checking out the main branch"
                     sh 'git fetch --all'
-                    sh 'git checkout main' // Ensure we're on the main branch
-                    sh 'git pull origin main' // Ensure the latest from the main branch
+                    sh 'git checkout main'
+                    sh 'git pull origin main'
                 }
             }
         }
@@ -22,84 +35,70 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    echo "Building Docker image with tag ${DOCKER_TAG}"
-		    // Tag Docker image with Jenkins build number (versioning)
-                    def version = "${BUILD_NUMBER}"
-                    sh "docker build -t $DOCKER_IMAGE:$version ."
-                    // Tag the image as 'latest'
-                    sh "docker tag $DOCKER_IMAGE:$version $DOCKER_IMAGE:latest"
-	        }
-	    }
-         }
-        stage('Run Tests') {
-            steps {
-		script {
-		    // Run the app or your tests here
-                    echo "Running tests in Docker container"
-                    sh 'docker run -d -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG'
+                    echo "Building Docker image with version tag ${VERSION}"
+                    sh "docker build -t $DOCKER_IMAGE:$VERSION ."
+                    sh "docker tag $DOCKER_IMAGE:$VERSION $DOCKER_IMAGE:$DOCKER_TAG"
                 }
             }
         }
 
-	stage('Cleanup Docker Containers') {
-	    steps {
-	        script {
-	            echo 'Cleaning up Docker containers'
-	            sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
-	            sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
-	        }
-	    }
-	}	    	    
-	    
-	stage('Deploy to Staging') {
-    steps {
-        script {
-            echo 'Deploying to staging...'
-            sh "docker run -d -p 4000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
+        stage('Run Tests') {
+            steps {
+                script {
+                    echo "Running tests using container: $TEST_CONTAINER_NAME"
+                    sh "docker run -d --name $TEST_CONTAINER_NAME -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG"
+                }
+            }
         }
-    }
-}
-	
+
+        stage('Deploy to Staging') {
+            steps {
+                script {
+                    echo "Deploying to staging with container: $STAGING_CONTAINER_NAME"
+                    sh "docker run -d --name $STAGING_CONTAINER_NAME -p 4000:3000 $DOCKER_IMAGE:$VERSION"
+                }
+            }
+        }
+
         stage('Deploy to Production') {
             steps {
                 script {
-                    // Deploy the app
-                    echo 'Deploying to production...'
-			// Record the deployed version
-            		sh "echo ${BUILD_NUMBER} > last_successful_version.txt"
-           		 // Optionally archive it in Jenkins
-            		archiveArtifacts artifacts: 'last_successful_version.txt', onlyIfSuccessful: true
+                    echo "Deploying to production with container: $PROD_CONTAINER_NAME"
+                    sh "docker run -d --name $PROD_CONTAINER_NAME -p 5000:3000 $DOCKER_IMAGE:$VERSION"
+
+                    sh "echo ${VERSION} > last_successful_version.txt"
+                    archiveArtifacts artifacts: 'last_successful_version.txt', onlyIfSuccessful: true
+                }
             }
         }
     }
-}
 
     post {
         always {
-            echo 'Build completed
-            // sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
-            // sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
+            echo 'Build completed.'
+            sh "docker rm -f $TEST_CONTAINER_NAME || true"
         }
-          success {
-              emailext (
-                  to: 'm.padillatrevino.558@studms.ug.edu.pl',
-                  from: 'mc.padillat@gmail.com',
-    		  subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-    		  body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' succeeded.",
-    		  mimeType: 'text/plain',
-		)
-          }
-	failure {
-            // Send email notification on failure
+
+        success {
+            emailext (
+                to: 'm.padillatrevino.558@studms.ug.edu.pl',
+                from: 'mc.padillat@gmail.com',
+                subject: "SUCCESS: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                body: "The Jenkins job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' completed successfully.",
+                mimeType: 'text/plain'
+            )
+        }
+
+        failure {
             emailext (
                 to: 'm.padillatrevino.558@studms.ug.edu.pl',
                 from: 'mc.padillat@gmail.com',
                 subject: "FAILURE: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' failed.",
-                mimeType: 'text/plain',
+                body: "The Jenkins job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' failed. Rollback triggered.",
+                mimeType: 'text/plain'
             )
-		echo 'Deployment failed. Triggering rollback...'
-       		sh './rollback.sh'  // Ensure this points to the correct script path
+            echo 'Deployment failed. Triggering rollback...'
+            sh './rollback.sh'
         }
     }
 }
