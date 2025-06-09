@@ -69,7 +69,7 @@ pipeline {
             steps {
                 script {
                     echo 'Deploying to staging...'
-                    sh "docker run -d -p 4000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
+                    sh "docker run -d --name my-devops-app-staging -p 4000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
                 }
             }
         }
@@ -78,9 +78,9 @@ pipeline {
             steps {
                 script {
                     echo 'Deploying to production...'
-                    sh "docker ps -q --filter 'ancestor=$DOCKER_IMAGE:$BUILD_NUMBER' | xargs -r docker stop || true"
-                    sh "docker ps -a -q --filter 'ancestor=$DOCKER_IMAGE:$BUILD_NUMBER' | xargs -r docker rm || true"
-                    sh "docker run -d -p 3000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
+                    sh "docker stop my-devops-app-production || true"
+                    sh "docker rm my-devops-app-production || true"
+                    sh "docker run -d --name my-devops-app-production -p 3000:3000 $DOCKER_IMAGE:$BUILD_NUMBER"
                     sh "echo ${BUILD_NUMBER} > last_successful_version.txt"
                     archiveArtifacts artifacts: 'last_successful_version.txt', onlyIfSuccessful: true
             }
