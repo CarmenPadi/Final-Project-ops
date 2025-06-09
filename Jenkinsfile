@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'my-devops-app' // Name of the Docker image
-        DOCKER_TAG = 'latest' // Docker tag
+        DOCKER_IMAGE = 'my-devops-app'
+        DOCKER_TAG = 'latest'
     }
 
     stages {
@@ -70,7 +70,6 @@ pipeline {
     post {
         always {
             echo 'Build completed'
-            // (Intentionally NOT cleaning up here anymore)
         }
         success {
             emailext (
