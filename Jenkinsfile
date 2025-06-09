@@ -23,6 +23,8 @@ pipeline {
                 script {
                     echo "Building Docker images via docker-compose"
                     sh 'docker-compose build'
+                    echo "Tagging image for deployment"
+                    sh "docker tag my-devops-app:latest my-devops-app:${BUILD_NUMBER}"
                 }
             }
         }
