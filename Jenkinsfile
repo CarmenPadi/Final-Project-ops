@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'my-devops-app'
-        DOCKER_TAG = 'latest'
+        DOCKER_IMAGE = 'my-devops-app' // Name of the Docker image
+        DOCKER_TAG = 'latest' // Docker tag
     }
 
     stages {
@@ -27,23 +27,22 @@ pipeline {
                     sh "docker tag $DOCKER_IMAGE:$version $DOCKER_IMAGE:latest"
                 }
             }
-         }
+        }
 
         stage('Run Tests') {
             steps {
                 script {
                     echo "Running tests in Docker container"
-                    sh 'docker run -d -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG'
+                    sh "docker run -d -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG"
                 }
             }
         }
 
-        stage('Cleanup Docker Containers') {
+        stage('Cleanup Old Containers') {
             steps {
                 script {
-                    echo 'Cleaning up Docker containers'
-                    sh 'docker ps -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker stop || true'
-                    sh 'docker ps -a -q --filter "ancestor=$DOCKER_IMAGE" | xargs docker rm || true'
+                    echo 'Cleaning up stopped Docker containers (not affecting currently running ones)'
+                    sh 'docker container prune -f || true'
                 }
             }
         }
@@ -71,6 +70,7 @@ pipeline {
     post {
         always {
             echo 'Build completed'
+            // (Intentionally NOT cleaning up here anymore)
         }
         success {
             emailext (
