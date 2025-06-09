@@ -18,13 +18,20 @@ pipeline {
             }
         }
 
-        stage('Build Docker Image') {
+        stage('Build Docker Images with Compose') {
             steps {
                 script {
-                    echo "Building Docker image with tag ${DOCKER_TAG}"
-                    def version = "${BUILD_NUMBER}"
-                    sh "docker build -t $DOCKER_IMAGE:$version ."
-                    sh "docker tag $DOCKER_IMAGE:$version $DOCKER_IMAGE:latest"
+                    echo "Building Docker images via docker-compose"
+                    dockerComposeBuild()
+                }
+            }
+        }
+
+        stage('Start Containers') {
+            steps {
+                script {
+                    echo "Starting containers with docker-compose"
+                    dockerComposeUp(detached: true)
                 }
             }
         }
@@ -32,8 +39,8 @@ pipeline {
         stage('Run Tests') {
             steps {
                 script {
-                    echo "Running tests in Docker container"
-                    sh "docker run -d -p 3000:3000 $DOCKER_IMAGE:$DOCKER_TAG"
+                    echo "Running tests against app container"
+                    sh 'curl -f http://localhost:3000 || exit 1'
                 }
             }
         }
