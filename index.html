@@ -65,7 +65,7 @@
         }
 
         .guestbook {
-            background: rgba(255, 153, 255, 0.9);
+            background: rgba(173, 22, 22, 0.95);
             border: 3px solid #ff00ff;
             padding: 15px;
             margin: 15px 0;
@@ -270,7 +270,7 @@
                 <div style="text-align: center; font-family: 'Times New Roman';">
                 <img src="./Images/Myinterests.png" alt="My Interests" style="width:700px; display:block; margin: 20px auto;">
                 <h3>this is where i write about things that interest me</h3> 
-                <h3 span style=background-color: yellow;"> things I play:</h3> 
+                <h3> things I play:</h3> 
                 <img src="./Images/softballheader.gif" alt="Softball" style="width:400px;">
                 <img src="./Images/drums.gif" alt="Softball" style="top: 50px; left: 5%;" width="130">
                 <img src="./Images/drums1.gif" alt="Softball" style="top: 5px; left: 12%;" width="130">
@@ -280,6 +280,7 @@
                 <img src="./Images/moeller.gif" alt="Softball" style="top: 161px; left: 200%;" width="130">
                 <img src="./Images/softball1.png" alt="Softball" style="top: 203px; left: 90%;" width="130">
                 <img src="./Images/jacks.gif" alt="Softball" style="top: 20px; left: 181%;" width="130">
+            <h3> BEST TV SHOW IN EXESTANCE</h3> 
             </div>   
             <div class="container">
                 <img src="./Images/powerrangers.jpg" alt="PowerRangers" style="width:800px; display:block; margin: 20px auto;"> 
@@ -291,23 +292,23 @@
                       <label class="checkbox-item" style="color:green";>
                         <input type="radio" name="ranger" value="Dragonzord";>
                         Dragonzord!
-                      </label>
+                      </label><br>
                       <label class="checkbox-item" style="color:black";>
                         <input type="radio" name="ranger" value="Mastodon";>
                         Mastodon!
-                      </label>
+                      </label><br>
                       <label class="checkbox-item" style="color:pink";>
                         <input type="radio" name="ranger" value="Pterodactyl"
                         Pterodactyl!
-                      </label>
+                      </label><br>
                       <label class="checkbox-item" style="color:blue">
                         <input type="radio" name="ranger" value="Triceratops";>
                         Triceratops!
-                      </label>
+                      </label><br>
                       <label class="checkbox-item" style="color:yellow";>
                         <input type="radio" name="ranger" value="Saber-Toothed Tiger";>
                         Saber-Toothed Tiger
-                      </label>
+                      </label><br>
                       <label class="checkbox-item" style="color:red";>
                         <input type="radio" name="ranger" value="Tyrannosaurus";>
                         Tyrannosaurus!
@@ -318,13 +319,23 @@
                       <div id="result" style="margin-top: 10px; font-weight: bold;"></div>
                 </div>
                 <script>
+                      const imageMap = {
+                        "Dragonzord": "./Images/dragonzord.png",
+                        "Mastodon": "./Images/mastodon.png",
+                        "Pterodactyl": "./Images/pterodactyl.png",
+                        "Triceratops": "./Images/triceratops.png",
+                        "Saber-Toothed Tiger": "./Images/saber-toothed-tiger.png",
+                        "Tyrannosaurus": "./Images/tyrannosaurus.png"
+                      };
                       document.getElementById('pollForm').addEventListener('submit', function(e) {
                         e.preventDefault();
                         const selected = document.querySelector('input[name="ranger"]:checked');
+                        const resultDiv = document.getElementById('result');
                         if (selected) {
-                          document.getElementById('result').textContent = `You selected: ${selected.value}`;
+                          const imageFile = imageMap[selected.value];
+                          resultDiv.innerHTML = `<img src="${imageFile}" alt="${selected.value}" style="max-width:300px; border-radius: 8px;">`;
                         } else {
-                          document.getElementById('result').textContent = "Please select an option.";
+                          resultDiv.innerHTML = `<p style="color:red;">Please select an option.</p>`;
                         }
                       });
                     </script>
@@ -343,7 +354,7 @@
                 <img src="./Images/skeletonburning.gif" alt="skeleton" style="width:400px; display:block; margin: 20px auto;">
             </div>
 
-            <div style="display: flex;">
+            <!--<div style="display: flex;">-->
             <img src="./Images/skeleton2.gif" alt="skeletonn" style="position: absolute; top: 40%; left: 20%;" width="120">    
             <img src="./Images/eyes.gif" alt="Eyes" style="position: absolute; top: 13%; left: 30%;" width="130">
             <img src="./Images/trompette.gif" alt="Trump" style="position: absolute; top: 40%; left: 70%;" width="120">
@@ -351,7 +362,7 @@
 
                 
                 <div class="container">
-                <div class="guestbook alien-border">
+                <!--<div class="guestbook alien-border">-->
                     <h3> Sign My Guestbook! </h3>
                     <p>Please sign my guestbook and let me know what you don't think of my site!</p>
                     <form>
@@ -379,6 +390,7 @@
                 </div>
             
         <div class="footer">
+            <img src="./Images/greatdayrose1.gif" alt="rose" style="position: center; width="120">
             <p style="color: white;">
                 <span class="blink">★</span> Copyright © 2000 xXx_WebMaster_2000_xXx <span class="blink">★</span><br>
                 Best viewed with Internet Explorer 6.0 at 800x600 resolution<br>
