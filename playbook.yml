@@ -18,12 +18,12 @@
     - name: Install app dependencies
       ansible.builtin.command: npm install
       args:
-        chdir: /path/to/your/project
+        chdir: "{{ playbook_dir }}"
 
     - name: Start the app
       ansible.builtin.command: npm start
       args:
-        chdir: /path/to/your/project
+        chdir: "{{ playbook_dir }}"
       async: 600
       poll: 0
 
